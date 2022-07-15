@@ -20,6 +20,7 @@ import homepageStat from "./homepageStat"
 import homepageStatList from "./homepageStatList"
 import homepageProduct from "./homepageProduct"
 import homepageProductList from "./homepageProductList"
+import homepageBanner from "./homepageBanner"
 
 import navItem from "./navItem"
 import navItemGroup from "./navItemGroup"
@@ -61,6 +62,8 @@ export default createSchema({
     homepageStatList,
     homepageProduct,
     homepageProductList,
+    homepageBanner,
+
     // layout
     navItem,
     navItemGroup,

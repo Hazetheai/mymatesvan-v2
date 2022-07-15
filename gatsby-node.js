@@ -319,6 +319,13 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage
       html: String!
     }
+
+    interface HomepageBanner implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      heading: String
+      text: String
+    }
   `)
 
   // CMS-specific types for Homepage
@@ -565,6 +572,14 @@ exports.createSchemaCustomization = async ({ actions }) => {
       description: String
       image: HomepageImage @link(by: "id", from: "image.asset._ref")
       html: String! @sanityBlockContent(fieldName: "content")
+    }
+
+    type SanityHomepageBanner implements Node & HomepageBanner & HomepageBlock
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      heading: String
+      text: String
     }
   `)
 }

@@ -23,6 +23,7 @@ export default {
             { type: "homepageBenefitList" },
             { type: "homepageStatList" },
             { type: "homepageProductList" },
+            { type: "homepageBanner" },
           ],
         },
       ],
