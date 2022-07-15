@@ -26,7 +26,7 @@ module.exports = {
         // These can be imported once ESM support lands
         background_color: "#ffe491",
         theme_color: "#004ca3",
-        icon: "src/favicon.png",
+        icon: "src/favicon-96x96.png",
       },
     },
   ],

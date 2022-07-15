@@ -1,6 +1,7 @@
 {
-  "name": "gatsby-starter-sanity-homepage",
+  "name": "my-mates-van-v2",
   "version": "1.0.0",
+  "license": "UNLICENSED",
   "scripts": {
     "start": "gatsby develop",
     "develop": "gatsby develop",
