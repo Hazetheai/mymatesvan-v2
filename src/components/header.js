@@ -21,6 +21,7 @@ import {
 } from "./header.css"
 import NavItemGroup from "./nav-item-group"
 import BrandLogo from "./brand-logo"
+import * as style from "./header.css"
 
 export default function Header() {
   const data = useStaticQuery(graphql`
@@ -61,6 +62,7 @@ export default function Header() {
 
   const { navItems, cta } = data.layout.header
   const [isOpen, setOpen] = React.useState(false)
+  const [stickyClass, setStickyClass] = React.useState("clear")
 
   React.useEffect(() => {
     if (isOpen) {
@@ -70,16 +72,28 @@ export default function Header() {
     }
   }, [isOpen])
 
+  React.useEffect(() => {
+    window.addEventListener("scroll", () => {
+      let scrollPos = window.scrollY
+      // console.log("scrollPos", scrollPos)
+      if (scrollPos > 30 && stickyClass === "color") {
+        return
+      }
+      if (scrollPos < 30) {
+        setStickyClass("clear")
+      } else setStickyClass("color")
+    })
+  }, [])
+
   return (
-    <header>
+    <header className={style.desktopHeader[stickyClass]}>
       <Container className={desktopHeaderNavWrapper}>
-        <Space size={2} />
         <Flex variant="spaceBetween">
           <NavLink to="/">
             <VisuallyHidden>Home</VisuallyHidden>
-            <BrandLogo />
+            <BrandLogo imageType={stickyClass} />
           </NavLink>
-          <nav>
+          <nav style={{ fontSize: 18 }}>
             <FlexList gap={4}>
               {navItems &&
                 navItems.map((navItem) => (

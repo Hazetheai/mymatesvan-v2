@@ -24,6 +24,7 @@ export default {
             { type: "homepageStatList" },
             { type: "homepageProductList" },
             { type: "homepageBanner" },
+            { type: "globalSocialLinks" },
           ],
         },
       ],

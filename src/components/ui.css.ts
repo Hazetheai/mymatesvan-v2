@@ -106,6 +106,11 @@ export const flexVariants: Record<FlexVariants, string> = styleVariants({
     flexWrap: "wrap",
     justifyContent: "space-between",
   },
+  spaceAround: {
+    width: "100%",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+  },
   center: {
     width: "100%",
     flexWrap: "wrap",
@@ -290,7 +295,7 @@ export const text: Record<TextVariants, string> = styleVariants({
       marginTop: theme.space[4],
       marginBottom: theme.space[6],
       fontSize: theme.fontSizes[5],
-      fontFamily: theme.fonts.heading,
+      fontFamily: theme.fonts.cursive,
       fontWeight: theme.fontWeights.extrabold,
       lineHeight: theme.lineHeights.heading,
       letterSpacing: theme.letterSpacings.tight,
@@ -305,7 +310,7 @@ export const text: Record<TextVariants, string> = styleVariants({
     margin0,
     {
       marginBottom: theme.space[3],
-      fontFamily: theme.fonts.heading,
+      fontFamily: theme.fonts.cursive,
       fontSize: theme.fontSizes[5],
       fontWeight: theme.fontWeights.extrabold,
       lineHeight: theme.lineHeights.tight,
@@ -341,7 +346,7 @@ export const text: Record<TextVariants, string> = styleVariants({
     margin0,
     {
       marginBottom: theme.space[2],
-      fontFamily: theme.fonts.mono,
+      fontFamily: theme.fonts.cursive,
       fontSize: theme.fontSizes[1],
       fontWeight: theme.fontWeights.medium,
       lineHeight: theme.lineHeights.tight,
@@ -363,7 +368,7 @@ export const text: Record<TextVariants, string> = styleVariants({
   stat: [
     margin0,
     {
-      fontFamily: theme.fonts.mono,
+      fontFamily: theme.fonts.cursive,
       fontSize: theme.fontSizes[6],
       fontWeight: theme.fontWeights.medium,
       lineHeight: theme.lineHeights.tight,
@@ -394,7 +399,7 @@ export const text: Record<TextVariants, string> = styleVariants({
     margin0,
     {
       fontSize: "180px",
-      fontFamily: theme.fonts.mono,
+      fontFamily: theme.fonts.cursive,
       lineHeight: theme.lineHeights.solid,
       letterSpacing: theme.letterSpacings.tight,
       "@media": {

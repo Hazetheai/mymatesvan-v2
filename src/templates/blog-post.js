@@ -47,7 +47,7 @@ export default function BlogPost(props) {
           <Space size={4} />
           {props.image && (
             <GatsbyImage
-              alt={props.image.alt}
+              alt={props.image.alt || ""}
               image={props.image.gatsbyImageData}
             />
           )}

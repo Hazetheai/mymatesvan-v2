@@ -21,6 +21,7 @@ export default {
             { type: "homepageBenefitList" },
             { type: "aboutLogoList" },
             { type: "homepageCta" },
+            { type: "globalSocialLinks" },
           ],
         },
       ],

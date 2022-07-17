@@ -46,9 +46,9 @@ const fontWeights = {
 }
 
 const fonts = {
-  text: '"DM Sans", sans-serif',
-  heading: '"DM Sans", sans-serif',
-  mono: "DM Mono, Menlo, monospace",
+  text: '"Raleway", sans-serif',
+  heading: '"Raleway", sans-serif',
+  cursive: "Gloria Hallelujah, cursive",
 }
 
 const lineHeights = {
@@ -76,6 +76,15 @@ const sizes = {
   navIconSmall: "30px",
 }
 
+const zIndex = {
+  hidden: "-1",
+  zero: "0",
+  base: "1",
+  header: "10",
+  popup: "20",
+  top: "100",
+}
+
 export type Radii = "button" | "large" | "circle"
 
 const radii: Record<Radii, string> = {
@@ -100,4 +109,5 @@ export const theme = createGlobalTheme(":root", {
   sizes,
   radii,
   shadows,
+  zIndex,
 })

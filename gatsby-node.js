@@ -243,6 +243,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       username: String!
       service: SocialService!
+      tagline: String
     }
 
     interface LayoutFooter implements Node {
@@ -294,6 +295,13 @@ exports.createSchemaCustomization = async ({ actions }) => {
       jobTitle: String
     }
 
+    interface ImageProfile implements Node {
+      id: ID!
+      image: HomepageImage
+      title: String
+      alt: String
+    }
+
     interface AboutLeadership implements Node & HomepageBlock {
       id: ID!
       blocktype: String
@@ -301,6 +309,14 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       subhead: String
       content: [AboutProfile]
+    }
+
+    interface HomepageBanner implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      heading: String
+      text: String
+      images: [ImageProfile]
     }
 
     interface AboutLogoList implements Node & HomepageBlock {
@@ -320,11 +336,10 @@ exports.createSchemaCustomization = async ({ actions }) => {
       html: String!
     }
 
-    interface HomepageBanner implements Node & HomepageBlock {
+    interface GlobalSocialLinks implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      heading: String
-      text: String
+      title: String
     }
   `)
 
@@ -497,6 +512,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       username: String!
       service: SocialService!
+      tagline: String
     }
 
     type SanityLayoutFooter implements Node & LayoutFooter {
@@ -547,6 +563,12 @@ exports.createSchemaCustomization = async ({ actions }) => {
       name: String
       jobTitle: String
     }
+    type SanityImageProfile implements Node & ImageProfile {
+      id: ID!
+      image: HomepageImage @link(by: "id", from: "image.asset._ref")
+      title: String
+      alt: String
+    }
 
     type SanityAboutLeadership implements Node & AboutLeadership & HomepageBlock {
       id: ID!
@@ -555,6 +577,15 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       subhead: String
       content: [AboutProfile]
+    }
+
+    type SanityHomepageBanner implements Node & HomepageBanner & HomepageBlock
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      heading: String
+      text: String
+      images: [ImageProfile]
     }
 
     type SanityAboutLogoList implements Node & AboutLogoList & HomepageBlock {
@@ -574,12 +605,10 @@ exports.createSchemaCustomization = async ({ actions }) => {
       html: String! @sanityBlockContent(fieldName: "content")
     }
 
-    type SanityHomepageBanner implements Node & HomepageBanner & HomepageBlock
-      @dontInfer {
+    type SanityGlobalSocialLinks implements Node & GlobalSocialLinks & HomepageBlock {
       id: ID!
       blocktype: String @blocktype
-      heading: String
-      text: String
+      title: String
     }
   `)
 }

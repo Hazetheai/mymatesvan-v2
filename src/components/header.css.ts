@@ -2,6 +2,18 @@ import { style, styleVariants } from "@vanilla-extract/css"
 import { theme } from "../theme.css"
 import { media } from "./ui.css"
 
+const desktopHeaderBase = style({
+  position: "fixed",
+  width: "100%",
+  zIndex: theme["zIndex"]["header"],
+  transition: "background-color 200ms linear",
+})
+
+export const desktopHeader = styleVariants({
+  clear: [desktopHeaderBase, { backgroundColor: theme.colors.transparent }],
+  color: [desktopHeaderBase, { backgroundColor: theme.colors.background }],
+})
+
 export const desktopHeaderNavWrapper = style({
   position: "relative",
   zIndex: 1,
@@ -9,7 +21,7 @@ export const desktopHeaderNavWrapper = style({
   "@media": {
     [media.small]: {
       display: "block",
-      paddingTop: theme.space[4],
+      // paddingTop: theme.space[4],
     },
   },
 })

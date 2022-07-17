@@ -29,6 +29,10 @@ import layoutHeader from "./layoutHeader"
 import layoutFooter from "./layoutFooter"
 import layout from "./layout"
 
+import imageProfile from "./imageProfile.js"
+
+import globalSocialLinks from "./globalSocialLinks.js"
+
 import page from "./page"
 
 import aboutPage from "./aboutPage"
@@ -71,6 +75,11 @@ export default createSchema({
     layoutHeader,
     layoutFooter,
     layout,
+
+    // Elements
+    imageProfile,
+    globalSocialLinks,
+
     // HTML page
     page,
     // about page

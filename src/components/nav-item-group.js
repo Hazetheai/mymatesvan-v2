@@ -96,7 +96,7 @@ export default function NavItemGroup({ name, navItems }) {
                   <Flex variant="start" gap={3}>
                     {navItem.icon && (
                       <GatsbyImage
-                        alt={navItem.icon.alt}
+                        alt={navItem.icon.alt || ""}
                         image={getImage(navItem.icon.gatsbyImageData)}
                         className={styles.navIcon}
                       />

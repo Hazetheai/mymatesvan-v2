@@ -20,6 +20,16 @@ export default {
         ],
       },
     },
-    { title: "Username", name: "username", type: "string" },
+    {
+      title: "Username",
+      name: "username",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      title: "Tagline",
+      name: "tagline",
+      type: "string",
+    },
   ],
 }

@@ -2,6 +2,7 @@ import { Link as GatsbyLink } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import isAbsoluteURL from "is-absolute-url"
 import * as React from "react"
+import { theme } from "../theme.css"
 import * as styles from "./ui.css"
 
 export const cx = (...args) => args.filter(Boolean).join(" ")
@@ -16,7 +17,13 @@ export function Base({
 }
 
 export function Container({ width = "normal", ...props }) {
-  return <Base cx={[styles.containers[width]]} {...props} />
+  return (
+    <Base
+      cx={[styles.containers[width]]}
+      {...props}
+      className={props.className || ""}
+    />
+  )
 }
 
 export function Flex({
@@ -103,13 +110,20 @@ export function Nudge({ left, right, top, bottom, ...props }) {
 }
 
 export function Section(props) {
-  return <Box as="section" className={styles.section} {...props} />
+  return (
+    <Box
+      as="section"
+      className={styles.section + " " + props.className || ""}
+      {...props}
+    />
+  )
 }
 
 export function Text({
   variant = "body",
   center = false,
   bold = false,
+  color = theme.colors["text-body"],
   ...props
 }) {
   return (
@@ -145,7 +159,13 @@ export function Link({ to, href, ...props }) {
   if (isAbsoluteURL(url)) {
     return (
       // eslint-disable-next-line jsx-a11y/anchor-has-content
-      <a href={url} className={styles.link} {...props} />
+      <a
+        href={url}
+        className={styles.link}
+        {...props}
+        target="_blank"
+        rel="noopener noreferrer"
+      />
     )
   }
   return <GatsbyLink to={url} className={styles.link} {...props} />
@@ -207,14 +227,18 @@ export function Blockquote(props) {
 
 export function Avatar({ alt, image }) {
   return (
-    <GatsbyImage alt={alt} image={getImage(image)} className={styles.avatar} />
+    <GatsbyImage
+      alt={alt || ""}
+      image={getImage(image)}
+      className={styles.avatar}
+    />
   )
 }
 
 export function Logo({ alt, image, size = "small" }) {
   return (
     <GatsbyImage
-      alt={alt}
+      alt={alt || ""}
       image={getImage(image)}
       className={styles.logos[size]}
     />
@@ -224,7 +248,7 @@ export function Logo({ alt, image, size = "small" }) {
 export function Icon({ alt, image, size = "medium" }) {
   return (
     <GatsbyImage
-      alt={alt}
+      alt={alt || ""}
       image={getImage(image)}
       className={styles.icons[size]}
     />
