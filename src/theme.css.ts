@@ -94,8 +94,19 @@ const radii: Record<Radii, string> = {
 }
 
 const shadows = {
+  small: "rgb(208 208 208) 0px 0px 16px 0px",
   large:
     "0px 4px 8px 0px #2E29330A, 0px 4px 24px 0px #2E293314, 0px 8px 24px 0px #473F4F29",
+}
+
+const transitions = {
+  base: "all 300ms ease-in-out",
+  crawl: "all 4000ms ease-in-out",
+}
+
+const gradients = {
+  bwFromLeft:
+    'linear-gradient(to right top, rgba(0, 0, 0, 0.75) 0%, rgba(29, 29, 29, 0.8) 8.1%, rgba(56, 56, 56, 0.9) 15.5%, rgba(82, 82, 82, 0.8) 27.5%, rgba(107, 107, 107, 0.7) 34%, rgba(130, 130, 130, 0.6) 39.3%, rgba(151, 151, 151, 0.5) 47.2%, rgba(171, 171, 171, 0.4) 51.1%, rgba(189, 189, 189, 0.2) 52.9%, rgba(205, 205, 205, 0.1) 58.8%, rgba(219, 219, 219, 0.1) 64.7%, rgba(232, 232, 232, 0.1) 71%, rgba(241, 241, 241, 0.1) 77.5%, rgba(249, 249, 249, 0.1) 84.5%, rgba(253, 253, 253, 0.1) 91.9%, rgba(255, 255, 255, 0.1) 100%) center center / cover no-repeat, url("/static/wv-pier-bw-8818a46edbcac89bb3b5698969e6fc78.png")',
 }
 
 export const theme = createGlobalTheme(":root", {
@@ -110,4 +121,6 @@ export const theme = createGlobalTheme(":root", {
   radii,
   shadows,
   zIndex,
+  transitions,
+  gradients,
 })

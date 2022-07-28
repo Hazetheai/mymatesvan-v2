@@ -57,19 +57,17 @@ const socialMedia = (size = 24) => ({
   },
 })
 
-const getSocialURL = ({ service, username }) => {
+export const getSocialURL = ({ service, username }) => {
   const domain = socialMedia()[service]?.url
   if (!domain) return false
   return `${domain}/${username}`
 }
 
-const getSocialIcon = ({ service, size = 24 }) => {
-  console.log("service", service)
-  console.log("size", size)
+export const getSocialIcon = ({ service, size = 24 }) => {
   return socialMedia(size)[service]?.icon
 }
 
-const getSocialName = ({ service }) => {
+export const getSocialName = ({ service }) => {
   return socialMedia()[service]?.name
 }
 

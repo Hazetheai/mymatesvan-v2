@@ -4,6 +4,7 @@ import * as React from "react"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick-theme.css"
 import "slick-carousel/slick/slick.css"
+import * as styles from "./banner.css"
 import {
   Box,
   Container,
@@ -13,8 +14,6 @@ import {
   SuperHeading,
   Text,
 } from "./ui"
-import * as styles from "./banner.css"
-import { style } from "@vanilla-extract/css"
 
 export default function Banner({ heading, text, images }) {
   //   function next() {

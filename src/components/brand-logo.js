@@ -20,7 +20,7 @@ export default function BrandLogo({ imageType }) {
       ) : (
         <StaticImage
           alt="logo"
-          src="../images/brand/van-colored-circle.png"
+          src="../images/brand/van-with-circle.png"
           placeholder="blurred"
           layout="fixed"
           width={100}

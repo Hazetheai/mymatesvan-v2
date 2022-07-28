@@ -30,7 +30,7 @@ import layoutFooter from "./layoutFooter"
 import layout from "./layout"
 
 import imageProfile from "./imageProfile.js"
-
+import vanHighlight from "./vanHighlight.js"
 import globalSocialLinks from "./globalSocialLinks.js"
 
 import page from "./page"
@@ -79,6 +79,7 @@ export default createSchema({
     // Elements
     imageProfile,
     globalSocialLinks,
+    vanHighlight,
 
     // HTML page
     page,

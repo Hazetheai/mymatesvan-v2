@@ -11,8 +11,10 @@
     "setup": "node ./scripts/setup.js"
   },
   "dependencies": {
+    "@browniebroke/gatsby-image-gallery": "^7.0.7",
     "@fontsource/gloria-hallelujah": "^4.5.7",
     "@fontsource/raleway": "^4.5.9",
+    "@formspree/react": "^2.3.0",
     "@sanity/block-content-to-html": "^2.0.0",
     "@vanilla-extract/babel-plugin": "^1.1.4",
     "@vanilla-extract/css": "^1.6.8",
@@ -21,6 +23,7 @@
     "gatsby": "^4.15.1",
     "gatsby-plugin-image": "^2.15.0",
     "gatsby-plugin-manifest": "^4.6.0",
+    "gatsby-plugin-portal": "^1.0.7",
     "gatsby-plugin-react-helmet": "^5.5.0",
     "gatsby-plugin-sharp": "^4.15.0",
     "gatsby-plugin-vanilla-extract": "^2.0.1",
@@ -29,6 +32,7 @@
     "gatsby-transformer-sharp": "^4.15.0",
     "is-absolute-url": "^4.0.1",
     "react": "^17.0.2",
+    "react-aria-modal": "^4.0.1",
     "react-dom": "^17.0.2",
     "react-feather": "^2.0.9",
     "react-helmet": "^6.1.0",

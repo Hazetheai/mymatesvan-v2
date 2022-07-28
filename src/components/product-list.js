@@ -68,11 +68,6 @@ export const query = graphql`
         id
         gatsbyImageData
       }
-      links {
-        id
-        href
-        text
-      }
     }
   }
 `

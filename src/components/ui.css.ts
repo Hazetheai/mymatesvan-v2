@@ -18,6 +18,77 @@ export const container = style({
   paddingRight: theme.space[4],
 })
 
+export const hideForSmall = style({
+  display: "none",
+  "@media": {
+    [media.small]: {
+      display: "block",
+    },
+  },
+})
+export const hideForMedium = style({
+  display: "none",
+  "@media": {
+    [media.medium]: {
+      display: "block",
+    },
+  },
+})
+export const showForSmallOnly = style({
+  display: "block",
+  "@media": {
+    [media.small]: {
+      display: "none",
+    },
+  },
+})
+export const showForSmallOnlyFlex = style({
+  display: "flex",
+  "@media": {
+    [media.small]: {
+      display: "none",
+    },
+  },
+})
+export const showForSmallMedium = style({
+  display: "block",
+  "@media": {
+    [media.large]: {
+      display: "none",
+    },
+  },
+})
+export const showForMediumOnly = style({
+  display: "none",
+  "@media": {
+    [media.small]: {
+      display: "block",
+    },
+    [media.medium]: {
+      display: "none",
+    },
+  },
+})
+export const hideForMediumOnly = style({
+  display: "block",
+  "@media": {
+    [media.small]: {
+      display: "none",
+    },
+    [media.medium]: {
+      display: "block",
+    },
+  },
+})
+export const showForSmallFlex = style({
+  display: "block",
+  "@media": {
+    [media.large]: {
+      display: "none",
+    },
+  },
+})
+
 export type Containers = "normal" | "wide" | "narrow" | "tight" | "fullbleed"
 
 export const containers: Record<Containers, string> = styleVariants({
@@ -53,6 +124,21 @@ export const containers: Record<Containers, string> = styleVariants({
         [media.medium]: {
           paddingLeft: theme.space[4],
           paddingRight: theme.space[4],
+          paddingTop: theme.space[5],
+          paddingBottom: theme.space[5],
+        },
+      },
+    },
+  ],
+  fullfullbleed: [
+    container,
+    {
+      paddingLeft: 0,
+      paddingRight: 0,
+      "@media": {
+        [media.medium]: {
+          paddingLeft: 0,
+          paddingRight: 0,
           paddingTop: theme.space[5],
           paddingBottom: theme.space[5],
         },
@@ -124,6 +210,14 @@ export const flexVariants: Record<FlexVariants, string> = styleVariants({
       },
     },
   },
+  // responsiveMedium: {
+  //   flexDirection: "column",
+  //   "@media": {
+  //     [media.medium]: {
+  //       flexDirection: "row",
+  //     },
+  //   },
+  // },
 })
 
 export const flexGap = styleVariants(theme.space, (gap) => ({ gap }))
@@ -142,7 +236,7 @@ export const widths: Record<Widths, string> = styleVariants(
     half: "50%",
     quarter: "25%",
     third: "33.3333%",
-    twothirds: "33.3333%",
+    twothirds: "66.6666%",
     fitContent: "fit-content",
   },
   (width) => [
@@ -312,7 +406,7 @@ export const text: Record<TextVariants, string> = styleVariants({
       marginBottom: theme.space[3],
       fontFamily: theme.fonts.cursive,
       fontSize: theme.fontSizes[5],
-      fontWeight: theme.fontWeights.extrabold,
+      fontWeight: theme.fontWeights.semibold,
       lineHeight: theme.lineHeights.tight,
       letterSpacing: theme.letterSpacings.tight,
       "@media": {
@@ -326,8 +420,9 @@ export const text: Record<TextVariants, string> = styleVariants({
     margin0,
     {
       marginBottom: theme.space[3],
+      fontFamily: theme.fonts.cursive,
       fontSize: theme.fontSizes[5],
-      fontWeight: theme.fontWeights.extrabold,
+      fontWeight: theme.fontWeights.normal,
       lineHeight: theme.lineHeights.tight,
       letterSpacing: theme.letterSpacings.tight,
     },
@@ -346,7 +441,7 @@ export const text: Record<TextVariants, string> = styleVariants({
     margin0,
     {
       marginBottom: theme.space[2],
-      fontFamily: theme.fonts.cursive,
+      fontFamily: theme.fonts.heading,
       fontSize: theme.fontSizes[1],
       fontWeight: theme.fontWeights.medium,
       lineHeight: theme.lineHeights.tight,
@@ -477,6 +572,7 @@ const button = style({
   paddingLeft: theme.space[3],
   paddingRight: theme.space[3],
   borderRadius: theme.radii.button,
+  cursor: "pointer",
 })
 
 export type ButtonVariants = "primary" | "reversed" | "link" | "linkReversed"
@@ -486,7 +582,7 @@ export const buttons: Record<ButtonVariants, string> = styleVariants({
     button,
     {
       color: theme.colors.background,
-      backgroundColor: theme.colors.primary,
+      backgroundColor: theme.colors.accent,
       ":hover": {
         backgroundColor: theme.colors.active,
       },
@@ -498,7 +594,7 @@ export const buttons: Record<ButtonVariants, string> = styleVariants({
   reversed: [
     button,
     {
-      color: theme.colors.primary,
+      color: theme.colors.accent,
       backgroundColor: theme.colors.background,
       ":hover": {
         color: theme.colors.background,
@@ -529,11 +625,11 @@ export const buttons: Record<ButtonVariants, string> = styleVariants({
       color: "inherit",
       backgroundColor: "transparent",
       ":hover": {
-        color: theme.colors.primary,
+        color: theme.colors.accent,
         backgroundColor: theme.colors.muted,
       },
       ":focus": {
-        color: theme.colors.primary,
+        color: theme.colors.accent,
         backgroundColor: theme.colors.muted,
       },
     },
@@ -548,8 +644,12 @@ export const backgrounds: Record<Backgrounds, string> = styleVariants({
     backgroundColor: theme.colors.primary,
   },
   muted: {
-    color: theme.colors.primary,
-    backgroundColor: theme.colors.muted,
+    color: theme.colors.white,
+    backgroundColor: theme.colors["bg-dark"],
+  },
+  accent: {
+    color: theme.colors.white,
+    backgroundColor: theme.colors.accent,
   },
 })
 
@@ -597,7 +697,7 @@ export const icons: Record<IconSizes, string> = styleVariants(
 )
 
 export const iconLink = style({
-  color: theme.colors.text,
+  color: "currentcolor",
   marginRight: theme.space[3],
   ":hover": {
     color: theme.colors.active,

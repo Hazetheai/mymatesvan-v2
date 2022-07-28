@@ -1,5 +1,35 @@
 const sanityBlockContentToHTML = require("@sanity/block-content-to-html")
 
+const path = require(`path`)
+
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+
+  const result = await graphql(`
+    {
+      allHomepageProduct {
+        edges {
+          node {
+            id
+            slug
+          }
+        }
+      }
+    }
+  `)
+  const templatePath = path.resolve(`./src/templates/van.js`)
+  result.data.allHomepageProduct.edges.forEach((edge) => {
+    // console.log("edge", edge)
+    createPage({
+      path: `/vans/${edge.node.slug}`,
+      component: templatePath,
+      context: {
+        slug: edge.node.slug,
+      },
+    })
+  })
+}
+
 exports.createSchemaCustomization = async ({ actions }) => {
   actions.createFieldExtension({
     name: "blocktype",
@@ -98,7 +128,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
     interface HomepageHero implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      heading: String!
+      heading: String
       kicker: String
       subhead: String
       image: HomepageImage
@@ -199,10 +229,16 @@ exports.createSchemaCustomization = async ({ actions }) => {
 
     interface HomepageProduct implements Node {
       id: ID!
+      title: String!
+      slug: String!
       heading: String
       text: String
       image: HomepageImage
-      links: [HomepageLink]
+      bannerImage: HomepageImage
+      details_heading: String
+      description: String!
+      highlights: [VanHighlight]
+      gallery: [SanityImage]
     }
 
     interface HomepageProductList implements Node & HomepageBlock {
@@ -301,6 +337,11 @@ exports.createSchemaCustomization = async ({ actions }) => {
       title: String
       alt: String
     }
+    interface VanHighlight implements Node {
+      id: ID!
+      image: HomepageImage
+      text: String
+    }
 
     interface AboutLeadership implements Node & HomepageBlock {
       id: ID!
@@ -370,7 +411,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       _type: String
       blocktype: String @blocktype
-      heading: String!
+      heading: String
       kicker: String
       subhead: String
       image: HomepageImage @link(by: "id", from: "image.asset._ref")
@@ -471,10 +512,16 @@ exports.createSchemaCustomization = async ({ actions }) => {
 
     type SanityHomepageProduct implements Node & HomepageProduct {
       id: ID!
+      title: String!
+      slug: String! @proxy(from: "slug.current")
       heading: String
       text: String
       image: HomepageImage @link(by: "id", from: "image.asset._ref")
-      links: [HomepageLink] @link
+      bannerImage: HomepageImage @link(by: "id", from: "bannerImage.asset._ref")
+      details_heading: String
+      description: String!
+      highlights: [VanHighlight]
+      gallery: [SanityImage] @link(by: "id", from: "image.asset._ref")
     }
 
     type SanityHomepageProductList implements Node & HomepageProductList & HomepageBlock {
@@ -568,6 +615,11 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage @link(by: "id", from: "image.asset._ref")
       title: String
       alt: String
+    }
+    type SanityVanHighlight implements Node & VanHighlight {
+      id: ID!
+      image: HomepageImage @link(by: "id", from: "image.asset._ref")
+      text: String
     }
 
     type SanityAboutLeadership implements Node & AboutLeadership & HomepageBlock {

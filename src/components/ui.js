@@ -43,6 +43,7 @@ export function Flex({
         styles.flex,
         variant && styles.flexVariants[variant],
         responsive && styles.flexVariants.responsive,
+        // responsiveMedium && styles.flexVariants.responsiveMedium,
         wrap && styles.flexVariants.wrap,
         gutter && styles.gutter[gutter],
         gutter ? styles.flexGap[0] : styles.flexGap[gap],
@@ -180,7 +181,7 @@ export function NavButtonLink({ ...props }) {
 }
 
 export function Button({ variant = "primary", ...props }) {
-  return <Base as={Link} cx={[styles.buttons[variant]]} {...props} />
+  return <Base as="button" cx={[styles.buttons[variant]]} {...props} />
 }
 
 export function ButtonList({ links = [], reversed = false, ...props }) {

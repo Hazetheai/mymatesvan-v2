@@ -73,16 +73,20 @@ export default function Header() {
   }, [isOpen])
 
   React.useEffect(() => {
-    window.addEventListener("scroll", () => {
+    function handleScroll() {
       let scrollPos = window.scrollY
-      // console.log("scrollPos", scrollPos)
       if (scrollPos > 30 && stickyClass === "color") {
         return
       }
       if (scrollPos < 30) {
         setStickyClass("clear")
       } else setStickyClass("color")
-    })
+    }
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
   }, [])
 
   return (

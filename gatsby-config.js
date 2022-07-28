@@ -29,5 +29,12 @@ module.exports = {
         icon: "src/favicon-96x96.png",
       },
     },
+    {
+      resolve: `gatsby-plugin-portal`,
+      options: {
+        key: "portal",
+        id: "portal",
+      },
+    },
   ],
 }
