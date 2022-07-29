@@ -102,6 +102,8 @@ export const navLinkListWrapperInner = style({
 
 export const navIcon = style({
   flexShrink: 0,
+  border: theme.borders.thin,
+  borderRadius: theme.radii.button,
   width: theme.sizes.navIcon,
   height: theme.sizes.navIcon,
   "@media": {

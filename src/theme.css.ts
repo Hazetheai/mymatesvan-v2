@@ -93,6 +93,12 @@ const radii: Record<Radii, string> = {
   circle: "99999px",
 }
 
+export const borders = {
+  thin: `2px solid ${colors.white}`,
+  base: `4px solid ${colors.white}`,
+  thick: `6px solid ${colors.white}`,
+}
+
 const shadows = {
   small: "rgb(208 208 208) 0px 0px 16px 0px",
   large:
@@ -119,6 +125,7 @@ export const theme = createGlobalTheme(":root", {
   letterSpacings,
   sizes,
   radii,
+  borders,
   shadows,
   zIndex,
   transitions,

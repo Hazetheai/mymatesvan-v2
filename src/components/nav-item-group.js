@@ -5,7 +5,12 @@ import Caret from "./caret"
 import * as styles from "./nav-item-group.css"
 import { media } from "./ui.css"
 
-export default function NavItemGroup({ name, navItems }) {
+export default function NavItemGroup({
+  name,
+  navItems,
+  navProducts,
+  isLinkOrVan,
+}) {
   const [isOpen, setIsOpen] = React.useState(false)
   const [popupVisible, setPopupVisible] = React.useState(false)
   const isSmallScreen = () => {
@@ -61,7 +66,8 @@ export default function NavItemGroup({ name, navItems }) {
       document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [name, isOpen, onGroupButtonClick])
-
+  console.log("navItems", navItems)
+  console.log("isLinkOrVan", isLinkOrVan)
   return (
     <Flex
       data-id={`${name}-group-wrapper`}
@@ -90,34 +96,74 @@ export default function NavItemGroup({ name, navItems }) {
             gap={2}
             className={styles.navLinkListWrapperInner}
           >
-            {navItems.map((navItem) => (
-              <li key={navItem.id}>
-                <NavLink to={navItem.href} className={styles.navLinkListLink}>
-                  <Flex variant="start" gap={3}>
-                    {navItem.icon && (
-                      <GatsbyImage
-                        alt={navItem.icon.alt || ""}
-                        image={getImage(navItem.icon.gatsbyImageData)}
-                        className={styles.navIcon}
-                      />
-                    )}
-                    <Flex variant="columnStart" marginY={1} gap={0}>
-                      <Box as="span" className={styles.navLinkTitle}>
-                        {navItem.text}
-                      </Box>
-                      {!!navItem.description && (
-                        <Box as="p" className={styles.navLinkDescription}>
-                          {navItem.description}
-                        </Box>
-                      )}
-                    </Flex>
-                  </Flex>
-                </NavLink>
-              </li>
-            ))}
+            {isLinkOrVan === "navItem" ? (
+              <NavItems navItems={navItems} />
+            ) : (
+              <NavProducts navProducts={navProducts} />
+            )}
           </FlexList>
         </Box>
       )}
     </Flex>
   )
 }
+
+const NavProducts = ({ navProducts }) => {
+  return navProducts.map((navProduct) => (
+    <li key={navProduct.id}>
+      {console.log("navProduct", navProduct)}
+      <NavLink
+        to={`/vans/${navProduct.slug}`}
+        className={styles.navLinkListLink}
+      >
+        <Flex variant="start" gap={3}>
+          {navProduct.image && (
+            <GatsbyImage
+              alt={navProduct.image.alt || ""}
+              image={getImage(navProduct.image.gatsbyImageData)}
+              className={styles.navIcon}
+            />
+          )}
+          <Flex variant="columnStart" marginY={1} gap={0}>
+            <Box as="span" className={styles.navLinkTitle}>
+              {navProduct.title}
+            </Box>
+            {!!navProduct.text && (
+              <Box as="p" className={styles.navLinkDescription}>
+                {navProduct.text}
+              </Box>
+            )}
+          </Flex>
+        </Flex>
+      </NavLink>
+    </li>
+  ))
+}
+
+const NavItems = ({ navItems }) =>
+  navItems.map((navItem) => (
+    <li key={navItem.id}>
+      {console.log("navItems", navItems)}
+      <NavLink to={navItem.href} className={styles.navLinkListLink}>
+        <Flex variant="start" gap={3}>
+          {navItem.icon && (
+            <GatsbyImage
+              alt={navItem.icon.alt || ""}
+              image={getImage(navItem.icon.gatsbyImageData)}
+              className={styles.navIcon}
+            />
+          )}
+          <Flex variant="columnStart" marginY={1} gap={0}>
+            <Box as="span" className={styles.navLinkTitle}>
+              {navItem.text}
+            </Box>
+            {!!navItem.description && (
+              <Box as="p" className={styles.navLinkDescription}>
+                {navItem.description}
+              </Box>
+            )}
+          </Flex>
+        </Flex>
+      </NavLink>
+    </li>
+  ))

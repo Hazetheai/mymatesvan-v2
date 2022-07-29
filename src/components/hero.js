@@ -1,6 +1,7 @@
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import * as React from "react"
+import { theme } from "../theme.css"
 import {
   Box,
   ButtonList,
@@ -9,6 +10,7 @@ import {
   Heading,
   Kicker,
   Section,
+  Space,
   Subhead,
   Text,
 } from "./ui"
@@ -17,12 +19,17 @@ const Hero = ({ image, kicker, h1, subhead, text, links }) => {
   return (
     <Section>
       <Container>
+        <Space size={5} />
         <Flex gap={4} variant="responsive">
           <Box width="half">
             {image && (
               <GatsbyImage
                 alt={image.alt || ""}
                 image={getImage(image.gatsbyImageData)}
+                style={{
+                  border: theme.borders.thick,
+                  borderRadius: theme.radii.button,
+                }}
               />
             )}
           </Box>

@@ -38,6 +38,18 @@ export default function Header() {
             }
             ... on NavItemGroup {
               name
+              isLinkOrVan
+              navProducts {
+                id
+                title
+                slug
+                text
+                description
+                image {
+                  id
+                  gatsbyImageData
+                }
+              }
               navItems {
                 id
                 href
@@ -88,7 +100,7 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll)
     }
   }, [])
-
+  // console.log("navItems", navItems)
   return (
     <header className={style.desktopHeader[stickyClass]}>
       <Container className={desktopHeaderNavWrapper}>
@@ -106,6 +118,8 @@ export default function Header() {
                       <NavItemGroup
                         name={navItem.name}
                         navItems={navItem.navItems}
+                        navProducts={navItem.navProducts}
+                        isLinkOrVan={navItem.isLinkOrVan}
                       />
                     ) : (
                       <NavLink to={navItem.href}>{navItem.text}</NavLink>

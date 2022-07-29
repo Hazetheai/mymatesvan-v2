@@ -114,8 +114,10 @@ exports.createSchemaCustomization = async ({ actions }) => {
     interface NavItemGroup implements Node & HeaderNavItem {
       id: ID!
       navItemType: String
+      isLinkOrVan: String
       name: String
       navItems: [NavItem]
+      navProducts: [HomepageProduct]
     }
 
     interface HomepageImage implements Node {
@@ -546,7 +548,9 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       navItemType: String @navItemType(name: "Group")
       name: String
+      isLinkOrVan: String
       navItems: [NavItem] @link
+      navProducts: [HomepageProduct] @link
     }
 
     type SanityLayoutHeader implements Node & LayoutHeader {

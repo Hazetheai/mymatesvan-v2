@@ -114,7 +114,7 @@ export default function Footer() {
   const { links, meta, socialLinks, copyright } = data.layout.footer
 
   return (
-    <Container as="footer" width="fullbleed">
+    <Container as="footer" width="fullbleed" id="footer">
       <Box>
         <Flex gap={0} variant="spaceBetween" responsive>
           <Box className={styles.footerLeft} width="half">
