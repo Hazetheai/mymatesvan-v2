@@ -1,5 +1,5 @@
 {
-  "name": "homepagestarter",
+  "name": "mymatesvan-studio",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -7,10 +7,10 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
+    "test": "sanity check",
     "build": "sanity build public -y",
     "deploy": "sanity graphql deploy",
     "sanity-init": "sanity init",
-    "test": "sanity check",
     "sanity-import": "sanity dataset import ../scripts/content.tar.gz production",
     "sanity-export": "sanity dataset export production ../scripts/content.tar.gz"
   },
