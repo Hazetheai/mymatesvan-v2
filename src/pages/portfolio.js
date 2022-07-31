@@ -15,20 +15,20 @@ const VansPage = ({ data }) => {
       description="All the vans we have converted"
       image={data.allHomepageProduct.edges[0].node.image}
     >
-      <Section>
-        {data.allHomepageProduct.edges.map((edge, idx) => {
-          const van = edge.node
-          return (
-            <VanDetails
-              key={van.id}
-              description={van.description}
-              details_heading={van.details_heading}
-              highlights={van.highlights}
-              order={idx % 2 ? 1 : 0}
-            />
-          )
-        })}
-      </Section>
+      {data.allHomepageProduct.edges.map((edge, idx) => {
+        const van = edge.node
+        return (
+          <VanDetails
+            key={van.id}
+            description={van.description}
+            details_heading={van.details_heading}
+            highlights={van.highlights}
+            order={idx % 2 ? 1 : 0}
+            short
+            slug={van.slug}
+          />
+        )
+      })}
     </Layout>
   )
 }

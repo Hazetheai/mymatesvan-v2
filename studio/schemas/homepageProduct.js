@@ -122,8 +122,8 @@ export default {
       validation: (Rule) => [
         Rule.required()
           .min(1)
-          .max(6)
-          .error("Required field with at least 1 and at most 6 entries."),
+          .max(5)
+          .error("Required field with at least 1 and at most 5 entries."),
       ],
     },
     {

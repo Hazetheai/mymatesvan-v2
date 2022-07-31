@@ -97,7 +97,7 @@ export function List(props) {
 export function Space({ size = "auto", ...props }) {
   return (
     <Base
-      cx={[styles[props.padding ? "padding" : "margin"][size]]}
+      cx={[styles[props.paddingspace ? "padding" : "margin"][size]]}
       {...props}
     />
   )

@@ -113,7 +113,9 @@ const SocialLinks = (data) => {
                         {getSocialIcon(link.node)}
                       </IconLink>
                       {link.node.tagline && (
-                        <Text variant="stat">{link.node.tagline}</Text>
+                        <Text style={{ maxWidth: "15ch" }} variant="stat">
+                          {link.node.tagline}
+                        </Text>
                       )}
                     </Box>
                   </li>

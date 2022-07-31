@@ -25,6 +25,8 @@ const VansPage = ({ data }) => {
               details_heading={van.details_heading}
               highlights={van.highlights}
               order={idx % 2 ? 1 : 0}
+              short
+              slug={van.slug}
             />
           )
         })}

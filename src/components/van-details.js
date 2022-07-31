@@ -37,7 +37,7 @@ const VanDetails = ({
     : [...highlights]
 
   return (
-    <Section>
+    <Section style={short ? { paddingTop: 0 } : {}}>
       <Container>
         <Flex gap={4} variant="end" responsive>
           <Box order={order} width="half">

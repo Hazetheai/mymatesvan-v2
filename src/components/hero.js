@@ -60,6 +60,7 @@ export const query = graphql`
       id
       href
       text
+      isContactButton
     }
     image {
       id
