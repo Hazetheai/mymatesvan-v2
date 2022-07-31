@@ -1,6 +1,6 @@
 const fs = require("fs")
 const Configstore = require("configstore")
-const studio = require("../studio/sanity.json")
+const studio = require("../../studio/sanity.json")
 
 const config = new Configstore(
   "sanity",
