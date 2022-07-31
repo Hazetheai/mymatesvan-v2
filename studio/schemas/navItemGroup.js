@@ -1,7 +1,10 @@
+import { GiDirectionSigns } from "react-icons/gi"
+
 export default {
   name: "navItemGroup",
   title: "Nav Item Group",
   type: "document",
+  icon: GiDirectionSigns,
   initialValue: {
     isLinkOrVan: "homepageProduct",
   },

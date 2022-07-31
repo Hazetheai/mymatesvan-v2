@@ -22,6 +22,8 @@ import {
 import NavItemGroup from "./nav-item-group"
 import BrandLogo from "./brand-logo"
 import * as style from "./header.css"
+import Modal from "./modal"
+import ContactForm from "./contact-form"
 
 export default function Header() {
   const data = useStaticQuery(graphql`
@@ -66,6 +68,7 @@ export default function Header() {
             id
             href
             text
+            isContactButton
           }
         }
       }
@@ -100,7 +103,7 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll)
     }
   }, [])
-  // console.log("navItems", navItems)
+
   return (
     <header className={style.desktopHeader[stickyClass]}>
       <Container className={desktopHeaderNavWrapper}>
@@ -128,7 +131,15 @@ export default function Header() {
                 ))}
             </FlexList>
           </nav>
-          <div>{cta && <Button to={cta.href}>{cta.text}</Button>}</div>
+          <div>
+            {cta?.isContactButton ? (
+              <Modal buttonText={cta.text}>
+                <ContactForm />
+              </Modal>
+            ) : (
+              cta && <Button to={cta.href}>{cta.text}</Button>
+            )}
+          </div>
         </Flex>
       </Container>
       <Container className={mobileHeaderNavWrapper[isOpen ? "open" : "closed"]}>
@@ -177,6 +188,8 @@ export default function Header() {
                     <NavItemGroup
                       name={navItem.name}
                       navItems={navItem.navItems}
+                      navProducts={navItem.navProducts}
+                      isLinkOrVan={navItem.isLinkOrVan}
                     />
                   ) : (
                     <NavLink to={navItem.href} className={mobileNavLink}>

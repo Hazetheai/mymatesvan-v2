@@ -1,7 +1,10 @@
+import { GiCargoCrate } from "react-icons/gi"
+
 export default {
   name: "aboutLogoList",
   title: "About Logo List",
   type: "document",
+  icon: GiCargoCrate,
   fields: [
     { title: "Heading", name: "heading", type: "string" },
     {

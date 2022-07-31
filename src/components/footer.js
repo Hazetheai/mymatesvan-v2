@@ -11,6 +11,7 @@ import {
   MapPin,
   Phone,
   Mail,
+  Clock,
 } from "react-feather"
 import {
   Container,
@@ -150,6 +151,10 @@ export default function Footer() {
                     </Link>
                   </Text>
                 </address>
+              </Flex>
+              <Flex marginY={3}>
+                <Clock />
+                <Text style={{ margin: 0 }}>7:30am to 5:00pm - Mon to Fri</Text>
               </Flex>
               <Flex marginY={3}>
                 <Phone />

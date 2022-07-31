@@ -22,10 +22,14 @@ const CustomWrapper = ({ children, onClick }) => (
 )
 const VanTemplate = ({ data }) => {
   const { homepageProduct: van, otherVans } = data
-  console.log("otherVans", otherVans)
 
   return (
-    <Layout>
+    <Layout
+      title={van.title}
+      description={van.text}
+      image={van.image}
+      noPadding={!!van.bannerImage}
+    >
       {van.bannerImage ? (
         <Banner
           // heading={van.heading}
@@ -97,7 +101,6 @@ const VanTemplate = ({ data }) => {
             <Box width="third" padding={4} center>
               <Modal title={"Send us a message!"}>
                 <Box center>
-                  <Heading>Send us a message!</Heading>
                   <ContactForm />
                 </Box>
               </Modal>
@@ -130,6 +133,7 @@ export const query = graphql`
       }
       image {
         alt
+        url
         gatsbyImageData
       }
       bannerImage {

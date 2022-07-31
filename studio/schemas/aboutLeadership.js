@@ -1,7 +1,10 @@
+import { GiTeamIdea } from "react-icons/gi"
+
 export default {
   name: "aboutLeadership",
   title: "About Leadership",
   type: "document",
+  icon: GiTeamIdea,
   fields: [
     { title: "Heading", name: "heading", type: "string" },
     { title: "Kicker", name: "kicker", type: "string" },

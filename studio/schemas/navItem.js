@@ -1,7 +1,10 @@
+import { GiDirectionSign } from "react-icons/gi"
+
 export default {
   name: "navItem",
   title: "Nav Item",
   type: "document",
+  icon: GiDirectionSign,
   fields: [
     { title: "Text", name: "text", type: "string" },
     {

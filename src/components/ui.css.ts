@@ -210,14 +210,6 @@ export const flexVariants: Record<FlexVariants, string> = styleVariants({
       },
     },
   },
-  // responsiveMedium: {
-  //   flexDirection: "column",
-  //   "@media": {
-  //     [media.medium]: {
-  //       flexDirection: "row",
-  //     },
-  //   },
-  // },
 })
 
 export const flexGap = styleVariants(theme.space, (gap) => ({ gap }))
@@ -727,6 +719,15 @@ export const visuallyHidden = style({
   position: "absolute",
   whiteSpace: "nowrap",
   width: "1px",
+})
+
+export const clamp = style({
+  WebkitLineClamp: "5",
+  WebkitBoxOrient: "vertical",
+  display: "-webkit-box",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  overflowWrap: "break-word",
 })
 
 // for debugging only

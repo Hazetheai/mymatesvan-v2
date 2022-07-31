@@ -11,7 +11,7 @@ const VansPage = ({ data }) => {
   )
   return (
     <Layout
-      title="Vans"
+      title="Portfolio"
       description="All the vans we have converted"
       image={data.allHomepageProduct.edges[0].node.image}
     >

@@ -11,26 +11,31 @@ import {
   Kicker,
   Space,
 } from "./ui"
+import { theme } from "../theme.css"
 
-function AboutProfile(props) {
+function AboutProfile({ image, name, jobTitle, width = "third" }) {
   return (
-    <Box width="third" padding={4} center>
-      {props.image && (
+    <Box width={width} padding={4} center>
+      {image && (
         <GatsbyImage
-          alt={props.image.alt || ""}
-          image={getImage(props.image.gatsbyImageData)}
+          alt={image.alt || ""}
+          image={getImage(image.gatsbyImageData)}
+          style={{
+            border: theme.borders.base,
+            borderRadius: theme.radii.button,
+          }}
         />
       )}
       <Space size={3} />
       <Box>
-        {props.name && (
+        {name && (
           <Text variant="medium" bold center>
-            {props.name}
+            {name}
           </Text>
         )}
-        {props.jobTitle && (
+        {jobTitle && (
           <Text variant="medium" center>
-            {props.jobTitle}
+            {jobTitle}
           </Text>
         )}
       </Box>
@@ -38,23 +43,49 @@ function AboutProfile(props) {
   )
 }
 
-export default function AboutLeadership(props) {
+export default function AboutLeadership({ kicker, heading, subhead, content }) {
+  const _content = content.slice(0, 5)
   return (
     <Section>
       <Container width="tight">
         <Box center paddingY={4}>
-          {props.kicker && <Kicker>{props.kicker}</Kicker>}
-          {props.heading && <Heading as="h1">{props.heading}</Heading>}
-          {props.subhead && <Text>{props.subhead}</Text>}
+          {kicker && <Kicker>{kicker}</Kicker>}
+          {heading && <Heading as="h1">{heading}</Heading>}
+          {subhead && <Text>{subhead}</Text>}
         </Box>
         <FlexList gap={0} variant="center" alignItems="start">
-          {props.content.map((profile) => (
-            <AboutProfile key={profile.id} {...profile} />
+          {_content.map((profile, idx, arr) => (
+            <AboutProfile
+              key={profile.id}
+              {...profile}
+              width={handle3ColLayout(idx, arr)}
+            />
           ))}
         </FlexList>
       </Container>
     </Section>
   )
+}
+
+/**
+ *
+ * @param {number} idx Index in array
+ * @param {*[]} arr Array of items
+ */
+function handle3ColLayout(idx, arr) {
+  if (arr.length === 1) return "full"
+  if (arr.length === 2) return "half"
+  if (arr.length === 3) return "third"
+
+  if (arr.length % 3 === 1 && idx === 0) {
+    return "full"
+  } else if (arr.length % 3 === 1) return "third"
+
+  if (arr.length % 3 === 2 && idx <= 1) {
+    return "half"
+  } else if (arr.length % 3 === 2) return "third"
+
+  return "third"
 }
 
 export const query = graphql`

@@ -12,30 +12,45 @@ import {
   Icon,
   LinkList,
   Flex,
+  Link,
+  Button,
 } from "./ui"
 import { ChevronsRight } from "react-feather"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { theme } from "../theme.css"
 import * as styles from "./van-details.css"
 import { showForSmallOnlyFlex } from "./ui.css"
-const VanDetails = ({ details_heading, description, highlights }) => {
+const VanDetails = ({
+  details_heading,
+  description,
+  highlights,
+  order = 0,
+  short,
+  slug,
+}) => {
   const [selected, setSelected] = React.useState(null)
-  const reversedHighlights = [...highlights].reverse()
+  const trimmedReversedHighlights = short
+    ? [...highlights].reverse().slice(0, 2)
+    : [...highlights].reverse()
+  const trimmedHighlights = short
+    ? [...highlights].slice(0, 2)
+    : [...highlights]
+
   return (
     <Section>
       <Container>
         <Flex gap={4} variant="end" responsive>
-          <Box width="half">
+          <Box order={order} width="half">
             <Heading>{details_heading}</Heading>
-            <Text as="p">{description}</Text>
-            <Subhead>Highlights</Subhead>
-            {highlights && (
+            {!short && <Text as="p">{description}</Text>}
+            <Subhead> {short && "Some"} Highlights</Subhead>
+            {trimmedHighlights && (
               <FlexList
                 className={styles.textContainer}
                 gap={0}
                 variant="columnStart"
               >
-                {highlights.map((highlight, idx, arr) => {
+                {trimmedHighlights.map((highlight, idx, arr) => {
                   return (
                     <Text
                       key={highlight.text.trim()}
@@ -58,10 +73,16 @@ const VanDetails = ({ details_heading, description, highlights }) => {
                 })}
               </FlexList>
             )}
+
+            {slug && short && (
+              <Button as="a" href={`/vans/${slug}`}>
+                Check it out!
+              </Button>
+            )}
           </Box>
           <Box width="half" className={styles.cardsContainer}>
-            {highlights &&
-              reversedHighlights.map((highlight, imgIdx, imgArr) => {
+            {trimmedHighlights &&
+              trimmedReversedHighlights.map((highlight, imgIdx, imgArr) => {
                 return (
                   <div
                     key={highlight.text.trim()}

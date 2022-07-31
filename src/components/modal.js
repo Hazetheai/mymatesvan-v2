@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import AriaModal from "react-aria-modal"
-import { Box, Button, Container, InteractiveIcon } from "./ui"
+import { Box, Button, Container, Heading, InteractiveIcon } from "./ui"
 import * as styles from "./modal.css"
 import { X } from "react-feather"
+
 const Modal = ({ children, title, buttonText }) => {
   const [modalActive, setModalActive] = useState(false)
 
@@ -25,7 +26,7 @@ const Modal = ({ children, title, buttonText }) => {
       </div>
       {modalActive ? (
         <AriaModal
-          titleText={title || ""}
+          titleText={buttonText || title || ""}
           onExit={deactivateModal}
           initialFocus="#base-modal-deactivate"
           getApplicationNode={getApplicationNode}
@@ -33,6 +34,7 @@ const Modal = ({ children, title, buttonText }) => {
           verticallyCenter={true}
         >
           <Container id="base-modal" className={styles.baseModal}>
+            <Heading>{buttonText || title || ""}</Heading>
             <div className="modal-body">{children}</div>
             <footer className="modal-footer">
               <Box>

@@ -66,8 +66,7 @@ export default function NavItemGroup({
       document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [name, isOpen, onGroupButtonClick])
-  console.log("navItems", navItems)
-  console.log("isLinkOrVan", isLinkOrVan)
+
   return (
     <Flex
       data-id={`${name}-group-wrapper`}
@@ -109,41 +108,41 @@ export default function NavItemGroup({
 }
 
 const NavProducts = ({ navProducts }) => {
-  return navProducts.map((navProduct) => (
-    <li key={navProduct.id}>
-      {console.log("navProduct", navProduct)}
-      <NavLink
-        to={`/vans/${navProduct.slug}`}
-        className={styles.navLinkListLink}
-      >
-        <Flex variant="start" gap={3}>
-          {navProduct.image && (
-            <GatsbyImage
-              alt={navProduct.image.alt || ""}
-              image={getImage(navProduct.image.gatsbyImageData)}
-              className={styles.navIcon}
-            />
-          )}
-          <Flex variant="columnStart" marginY={1} gap={0}>
-            <Box as="span" className={styles.navLinkTitle}>
-              {navProduct.title}
-            </Box>
-            {!!navProduct.text && (
-              <Box as="p" className={styles.navLinkDescription}>
-                {navProduct.text}
-              </Box>
-            )}
-          </Flex>
-        </Flex>
-      </NavLink>
-    </li>
-  ))
+  return navProducts
+    ? navProducts?.map((navProduct) => (
+        <li key={navProduct.id}>
+          <NavLink
+            to={`/vans/${navProduct.slug}`}
+            className={styles.navLinkListLink}
+          >
+            <Flex variant="start" gap={3}>
+              {navProduct.image && (
+                <GatsbyImage
+                  alt={navProduct.image.alt || ""}
+                  image={getImage(navProduct.image.gatsbyImageData)}
+                  className={styles.navIcon}
+                />
+              )}
+              <Flex variant="columnStart" marginY={1} gap={0}>
+                <Box as="span" className={styles.navLinkTitle}>
+                  {navProduct.title}
+                </Box>
+                {!!navProduct.text && (
+                  <Box as="p" className={styles.navLinkDescription}>
+                    {navProduct.text}
+                  </Box>
+                )}
+              </Flex>
+            </Flex>
+          </NavLink>
+        </li>
+      ))
+    : null
 }
 
 const NavItems = ({ navItems }) =>
   navItems.map((navItem) => (
     <li key={navItem.id}>
-      {console.log("navItems", navItems)}
       <NavLink to={navItem.href} className={styles.navLinkListLink}>
         <Flex variant="start" gap={3}>
           {navItem.icon && (

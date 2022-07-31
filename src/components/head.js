@@ -2,6 +2,7 @@ import * as React from "react"
 import { Helmet } from "react-helmet"
 
 export default function Head({ title, description, image }) {
+  console.log("image", image)
   return (
     <Helmet
       htmlAttributes={{
@@ -9,7 +10,11 @@ export default function Head({ title, description, image }) {
       }}
     >
       <meta charSet="utf-8" />
-      <title>{title}</title>
+      <title>
+        {title?.toLowerCase() !== "my mates van"
+          ? `${title} | My Mates Van`
+          : title}
+      </title>
       {description && (
         <meta
           name="description"

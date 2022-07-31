@@ -51,7 +51,7 @@ export default function BlogPost(props) {
               image={props.image.gatsbyImageData}
             />
           )}
-          <Space size={5} />
+
           <div
             className={styles.blogPost}
             dangerouslySetInnerHTML={{

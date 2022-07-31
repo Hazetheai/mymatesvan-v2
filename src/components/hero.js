@@ -19,7 +19,6 @@ const Hero = ({ image, kicker, h1, subhead, text, links }) => {
   return (
     <Section>
       <Container>
-        <Space size={5} />
         <Flex gap={4} variant="responsive">
           <Box width="half">
             {image && (

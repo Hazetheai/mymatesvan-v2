@@ -12,7 +12,8 @@
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
-    "better-slug"
+    "better-slug",
+    "@sanity/vision"
   ],
   "env": {
     "production": {
@@ -29,6 +30,10 @@
     {
       "implements": "part:@sanity/base/theme/variables/override-style",
       "path": "./css/cms.css"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./deskStructure.js"
     }
   ]
 }

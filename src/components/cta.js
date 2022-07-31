@@ -11,23 +11,23 @@ import {
   Kicker,
 } from "./ui"
 
-export default function HomepageCta(props) {
+export default function HomepageCta({ kicker, heading, text, links, image }) {
   return (
     <Container width="fullbleed">
       <Section padding={5} radius="large" background="primary">
         <Heading center>
-          {props.kicker && <Kicker center>{props.kicker}</Kicker>}
-          {props.heading}
+          {kicker && <Kicker center>{kicker}</Kicker>}
+          {heading}
         </Heading>
         <Text as="p" center variant="lead">
-          {props.text}
+          {text}
         </Text>
-        <ButtonList links={props.links} variant="center" reversed />
-        {props.image && (
+        <ButtonList links={links} variant="center" reversed />
+        {image && (
           <Nudge left={5} right={5} bottom={5}>
             <GatsbyImage
-              alt={props.image.alt || ""}
-              image={getImage(props.image.gatsbyImageData)}
+              alt={image.alt || ""}
+              image={getImage(image.gatsbyImageData)}
             />
           </Nudge>
         )}
@@ -42,6 +42,7 @@ export const query = graphql`
     kicker
     heading
     text
+
     image {
       alt
       id
@@ -51,6 +52,7 @@ export const query = graphql`
       id
       href
       text
+      isContactButton
     }
   }
 `

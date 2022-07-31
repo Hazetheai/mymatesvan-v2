@@ -72,7 +72,6 @@ export const getSocialName = ({ service }) => {
 }
 
 const SocialLinks = (data) => {
-  console.log("data", data)
   const staticData = useStaticQuery(graphql`
     {
       allSocialLink {
@@ -90,7 +89,6 @@ const SocialLinks = (data) => {
 
   const { edges: socialLinks } = staticData.allSocialLink
 
-  console.log("socialLinks", socialLinks)
   return (
     <Section>
       <Container width="wide">

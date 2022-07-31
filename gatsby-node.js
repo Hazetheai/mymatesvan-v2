@@ -19,7 +19,6 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   const templatePath = path.resolve(`./src/templates/van.js`)
   result.data.allHomepageProduct.edges.forEach((edge) => {
-    // console.log("edge", edge)
     createPage({
       path: `/vans/${edge.node.slug}`,
       component: templatePath,
@@ -95,6 +94,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       href: String
       text: String
+      isContactButton: Boolean
     }
 
     interface HeaderNavItem implements Node {
@@ -392,6 +392,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       href: String
       text: String
+      isContactButton: Boolean
     }
 
     type SanityImageAsset implements Node & HomepageImage {

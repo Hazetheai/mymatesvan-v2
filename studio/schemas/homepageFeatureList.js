@@ -1,7 +1,10 @@
+import { GiToolbox } from "react-icons/gi"
+
 export default {
   name: "homepageFeatureList",
   title: "Homepage Feature List",
   type: "document",
+  icon: GiToolbox,
   fields: [
     { title: "Heading", name: "heading", type: "string" },
     { title: "Kicker", name: "kicker", type: "string" },

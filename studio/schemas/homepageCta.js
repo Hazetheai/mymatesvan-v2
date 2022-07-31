@@ -1,7 +1,10 @@
+import { GiOnTarget } from "react-icons/gi"
+
 export default {
   name: "homepageCta",
   title: "Homepage CTA",
   type: "document",
+  icon: GiOnTarget,
   fields: [
     { title: "Heading", name: "heading", type: "string" },
     { title: "Kicker", name: "kicker", type: "string" },

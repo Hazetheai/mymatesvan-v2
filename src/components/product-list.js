@@ -11,22 +11,33 @@ import {
   Box,
   Icon,
   LinkList,
+  Space,
+  Link,
 } from "./ui"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { theme } from "../theme.css"
 
-function Product(props) {
+function Product({ image, heading, text, slug, links }) {
   return (
-    <Box center>
-      {props.image && (
-        <Icon
-          alt={props.image.alt}
-          image={props.image.gatsbyImageData}
-          size="large"
-        />
-      )}
-      <Subhead>{props.heading}</Subhead>
-      <Text>{props.text}</Text>
-      <LinkList links={props.links} />
-    </Box>
+    <Link href={`/vans/${slug}`}>
+      <Box center>
+        {image && (
+          <GatsbyImage
+            alt={image.alt || ""}
+            image={image.thumb}
+            size="large"
+            style={{
+              border: theme.borders.base,
+              borderRadius: theme.radii.button,
+            }}
+          />
+        )}
+        <Space size="3" />
+        <Subhead style={{ maxWidth: "15ch" }}>{heading}</Subhead>
+        <Text>{text}</Text>
+        <LinkList links={links} />
+      </Box>
+    </Link>
   )
 }
 
@@ -41,7 +52,7 @@ export default function ProductList(props) {
           </Heading>
           {props.text && <Text>{props.text}</Text>}
         </Box>
-        <FlexList gap={4} variant="responsive">
+        <FlexList gap={4} variant="center" responsive>
           {props.content.map((product) => (
             <li key={product.id}>
               <Product {...product} />
@@ -63,10 +74,13 @@ export const query = graphql`
       id
       heading
       text
+      slug
       image {
         alt
         id
-        gatsbyImageData
+        ... on SanityImageAsset {
+          thumb: gatsbyImageData(width: 270, height: 270)
+        }
       }
     }
   }

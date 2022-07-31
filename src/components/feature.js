@@ -11,6 +11,7 @@ import {
   Text,
   ButtonList,
 } from "./ui"
+import { theme } from "../theme.css"
 
 export default function Feature(props) {
   return (
@@ -22,6 +23,10 @@ export default function Feature(props) {
               <GatsbyImage
                 alt={props.image.alt || ""}
                 image={getImage(props.image.gatsbyImageData)}
+                style={{
+                  border: theme.borders.base,
+                  borderRadius: theme.radii.button,
+                }}
               />
             )}
           </Box>

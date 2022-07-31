@@ -20,12 +20,12 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "Gatsby Starter Sanity Homepage",
-        short_name: "Gatsby",
+        name: "My Mates Van",
+        short_name: "My Mates Van",
         start_url: "/",
         // These can be imported once ESM support lands
-        background_color: "#ffe491",
-        theme_color: "#004ca3",
+        background_color: "hsl(23, 59%, 21%)",
+        theme_color: "hsl(30, 65%, 85%)",
         icon: "src/favicon-96x96.png",
       },
     },

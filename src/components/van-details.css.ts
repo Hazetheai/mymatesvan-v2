@@ -45,7 +45,7 @@ export const cardsContainer = style({
   position: "relative",
   "@media": {
     [media.small]: {
-      height: "80vh",
+      height: "65vh",
       top: theme.space[5],
     },
   },

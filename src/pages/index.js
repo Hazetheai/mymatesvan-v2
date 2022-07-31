@@ -8,10 +8,9 @@ export default function Homepage(props) {
   const { homepage } = props.data
 
   {
-    console.log("blocks", homepage)
   }
   return (
-    <Layout {...homepage}>
+    <Layout {...homepage} noPadding>
       {homepage.blocks.map((block) => {
         const { id, blocktype, ...componentProps } = block
         const Component = sections[blocktype] || Fallback

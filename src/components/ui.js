@@ -3,6 +3,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import isAbsoluteURL from "is-absolute-url"
 import * as React from "react"
 import { theme } from "../theme.css"
+import ContactForm from "./contact-form"
+import Modal from "./modal"
 import * as styles from "./ui.css"
 
 export const cx = (...args) => args.filter(Boolean).join(" ")
@@ -93,7 +95,12 @@ export function List(props) {
 }
 
 export function Space({ size = "auto", ...props }) {
-  return <Base cx={[styles.margin[size]]} {...props} />
+  return (
+    <Base
+      cx={[styles[props.padding ? "padding" : "margin"][size]]}
+      {...props}
+    />
+  )
 }
 
 export function Nudge({ left, right, top, bottom, ...props }) {
@@ -191,14 +198,21 @@ export function ButtonList({ links = [], reversed = false, ...props }) {
     }
     return i === 0 ? "primary" : "link"
   }
+
   return (
     <FlexList marginY={4} {...props}>
       {links &&
         links.map((link, i) => (
           <li key={link.id}>
-            <Button href={link.href} variant={getVariant(i)}>
-              {link.text}
-            </Button>
+            {link.isContactButton ? (
+              <Modal buttonText={link.text}>
+                <ContactForm />
+              </Modal>
+            ) : (
+              <Button as="a" href={link.href} variant={getVariant(i)}>
+                {link.text}
+              </Button>
+            )}
           </li>
         ))}
     </FlexList>
