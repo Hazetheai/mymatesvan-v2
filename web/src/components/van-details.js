@@ -96,7 +96,7 @@ const VanDetails = ({
                     <GatsbyImage
                       alt={highlight.text || ""}
                       image={getImage(highlight.image.gatsbyImageData)}
-                      style={{ position: "absolute" }}
+                      // style={{ position: "absolute" }}
                       className={`${
                         styles.squareVariants["image-" + (imgIdx + 1)]
                       } ${selected === imgIdx ? styles.selectedHighlight : ""}`}

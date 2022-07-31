@@ -65,7 +65,7 @@ const square = style({
   "@media": {
     [media.small]: {
       width: "60%",
-      position: "absolute",
+      position: "absolute !important",
       height: "300px",
       left: "20%",
     },
