@@ -1,6 +1,6 @@
 export default {
   name: "homepageTestimonial",
-  title: "Homepage Testimonial",
+  title: "Testimonial",
   type: "document",
   preview: {
     select: {

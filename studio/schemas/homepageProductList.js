@@ -2,7 +2,7 @@ import { GiSurferVan } from "react-icons/gi"
 
 export default {
   name: "homepageProductList",
-  title: "Homepage Product List",
+  title: "Product List",
   type: "document",
   icon: GiSurferVan,
   fields: [

@@ -2,7 +2,7 @@ import { GiAndromedaChain } from "react-icons/gi"
 
 export default {
   name: "homepageLink",
-  title: "Homepage Link",
+  title: "Link",
   type: "document",
   icon: GiAndromedaChain,
   initialValue: {

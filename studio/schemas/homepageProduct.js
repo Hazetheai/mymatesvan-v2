@@ -5,7 +5,7 @@ import EditorMessage from "../components/EditorMessage"
 
 export default {
   name: "homepageProduct",
-  title: "Homepage Product",
+  title: "Product",
   type: "document",
   groups: [
     {

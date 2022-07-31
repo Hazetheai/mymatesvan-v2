@@ -2,7 +2,7 @@ import { GiUpgrade } from "react-icons/gi"
 
 export default {
   name: "homepageBenefitList",
-  title: "Homepage Benefit List",
+  title: "Benefit List",
   type: "document",
   icon: GiUpgrade,
   fields: [

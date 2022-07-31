@@ -1,6 +1,6 @@
 export default {
   name: "homepageLogo",
-  title: "Homepage Logo",
+  title: "Logo",
   type: "document",
   preview: {
     select: {

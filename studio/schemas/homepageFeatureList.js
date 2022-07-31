@@ -2,7 +2,7 @@ import { GiToolbox } from "react-icons/gi"
 
 export default {
   name: "homepageFeatureList",
-  title: "Homepage Feature List",
+  title: "Feature List",
   type: "document",
   icon: GiToolbox,
   fields: [

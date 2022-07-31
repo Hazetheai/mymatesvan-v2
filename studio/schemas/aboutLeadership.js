@@ -2,7 +2,7 @@ import { GiTeamIdea } from "react-icons/gi"
 
 export default {
   name: "aboutLeadership",
-  title: "About Leadership",
+  title: "Leadership",
   type: "document",
   icon: GiTeamIdea,
   fields: [

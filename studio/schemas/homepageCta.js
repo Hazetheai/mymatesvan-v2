@@ -2,7 +2,7 @@ import { GiOnTarget } from "react-icons/gi"
 
 export default {
   name: "homepageCta",
-  title: "Homepage CTA",
+  title: "CTA",
   type: "document",
   icon: GiOnTarget,
   fields: [

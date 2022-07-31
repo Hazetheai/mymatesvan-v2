@@ -2,7 +2,7 @@ import { GiPerson } from "react-icons/gi"
 
 export default {
   name: "homepageTestimonialList",
-  title: "Homepage Testimonial List",
+  title: "Testimonial List",
   type: "document",
   icon: GiPerson,
   fields: [

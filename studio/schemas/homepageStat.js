@@ -2,7 +2,7 @@ import { GiDatabase } from "react-icons/gi"
 
 export default {
   name: "homepageStat",
-  title: "Homepage Stat",
+  title: "Stat",
   type: "document",
   icon: GiDatabase,
 

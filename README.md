@@ -186,7 +186,7 @@ For this example, we'll create a new "Banner" component.
       // studio/schema/homepageBanner.js
       export default {
         name: "homepageBanner",
-        title: "Homepage Banner",
+        title: "Banner",
         type: "document",
         fields: [
           { title: "Heading", name: "heading", type: "string" },

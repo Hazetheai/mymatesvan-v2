@@ -1,6 +1,6 @@
 export default {
   name: "homepageBanner",
-  title: "Homepage Banner",
+  title: "Banner",
   type: "document",
   preview: {
     select: {
