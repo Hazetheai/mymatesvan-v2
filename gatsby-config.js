@@ -13,10 +13,13 @@ module.exports = {
         token: process.env.SANITY_TOKEN,
       },
     },
+    {
+      resolve: "gatsby-plugin-vanilla-extract",
+      options: { identifiers: "debug" },
+    },
     "gatsby-plugin-sharp",
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-vanilla-extract",
     {
       resolve: "gatsby-plugin-manifest",
       options: {

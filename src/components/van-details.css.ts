@@ -72,7 +72,7 @@ const square = style({
   },
 })
 export const squareVariants = styleVariants({
-  ".1": [
+  "image-1": [
     square,
     {
       transform: "rotate(0)",
@@ -85,7 +85,7 @@ export const squareVariants = styleVariants({
       },
     },
   ],
-  ".2": [
+  "image-2": [
     square,
     {
       "@media": {
@@ -96,7 +96,7 @@ export const squareVariants = styleVariants({
       },
     },
   ],
-  ".3": [
+  "image-3": [
     square,
     {
       "@media": {
@@ -104,7 +104,7 @@ export const squareVariants = styleVariants({
       },
     },
   ],
-  ".4": [
+  "image-4": [
     square,
     {
       "@media": {
@@ -115,7 +115,7 @@ export const squareVariants = styleVariants({
       },
     },
   ],
-  ".5": [
+  "image-5": [
     square,
     {
       "@media": {

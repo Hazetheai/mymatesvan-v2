@@ -1,14 +1,14 @@
-import Gallery from "@browniebroke/gatsby-image-gallery"
-import { graphql } from "gatsby"
 import React from "react"
-import Banner from "../components/banner"
-import Consultation from "../components/consultation"
-import * as styles from "../components/gallery.css"
-import Hero from "../components/hero"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import OtherVans from "../components/other-vans"
-import { Container, Section } from "../components/ui"
+import Banner from "../components/banner"
+import Hero from "../components/hero"
 import VanDetails from "../components/van-details"
+import { Container, Section } from "../components/ui"
+import Gallery from "@browniebroke/gatsby-image-gallery"
+import * as styles from "../components/gallery.css"
+import Consultation from "../components/consultation"
+import OtherVans from "../components/other-vans"
 
 const CustomWrapper = ({ children, onClick }) => (
   <div className={styles.galleryImageWrapper} onClick={onClick}>
