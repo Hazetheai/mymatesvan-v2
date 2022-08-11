@@ -58,6 +58,14 @@ export const showForSmallMedium = style({
     },
   },
 })
+export const showForSmallMediumFlex = style({
+  display: "flex",
+  "@media": {
+    [media.large]: {
+      display: "none",
+    },
+  },
+})
 export const showForMediumOnly = style({
   display: "none",
   "@media": {
@@ -163,6 +171,7 @@ export type FlexVariants =
   | "spaceBetween"
   | "center"
   | "responsive"
+  | "responsiveMedium"
 
 export const flexVariants: Record<FlexVariants, string> = styleVariants({
   wrap: {
@@ -210,6 +219,14 @@ export const flexVariants: Record<FlexVariants, string> = styleVariants({
       },
     },
   },
+  responsiveMedium: {
+    flexDirection: "column",
+    "@media": {
+      [media.medium]: {
+        flexDirection: "row",
+      },
+    },
+  },
 })
 
 export const flexGap = styleVariants(theme.space, (gap) => ({ gap }))
@@ -236,6 +253,26 @@ export const widths: Record<Widths, string> = styleVariants(
       width: "100%",
       "@media": {
         [media.small]: {
+          width,
+        },
+      },
+    },
+  ]
+)
+export const mediumWidths: Record<Widths, string> = styleVariants(
+  {
+    full: "100%",
+    half: "50%",
+    quarter: "25%",
+    third: "33.3333%",
+    twothirds: "66.6666%",
+    fitContent: "fit-content",
+  },
+  (width) => [
+    {
+      width: "100%",
+      "@media": {
+        [media.medium]: {
           width,
         },
       },

@@ -2,7 +2,6 @@ import * as React from "react"
 import { Helmet } from "react-helmet"
 
 export default function Head({ title, description, image }) {
-  console.log("image", image)
   return (
     <Helmet
       htmlAttributes={{

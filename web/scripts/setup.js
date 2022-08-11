@@ -1,6 +1,8 @@
 const fs = require("fs")
 const Configstore = require("configstore")
 const studio = require("../../studio/sanity.json")
+// require("dotenv").config({ path: "../.env.development" })
+// console.log("process.env", process.env)
 
 const config = new Configstore(
   "sanity",

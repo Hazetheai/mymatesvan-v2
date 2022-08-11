@@ -1,7 +1,7 @@
 import { style, styleVariants } from "@vanilla-extract/css"
 import { calc } from "@vanilla-extract/css-utils"
 import { theme } from "../theme.css"
-import { media } from "./ui.css"
+import { media, widths } from "./ui.css"
 
 export const highlightImage = style({
   border: 4,
@@ -18,14 +18,36 @@ export const highlightImage = style({
 export const textContainer = style({
   display: "none",
   "@media": {
-    [media.small]: {
+    [media.medium]: {
       display: "flex",
+    },
+  },
+})
+export const descriptionText = style({
+  display: "inline-block",
+  "@media": {
+    [media.medium]: {
+      width: "50%",
+    },
+  },
+})
+export const imageHighlightText = style({
+  display: "flex",
+  alignItems: "center",
+  "@media": {
+    [media.medium]: {
+      display: "none",
     },
   },
 })
 
 export const imageContainer = style({
-  cursor: "pointer",
+  width: "100%",
+  "@media": {
+    [media.medium]: {
+      width: "auto",
+    },
+  },
 })
 const baseHighLightText = style({
   borderRadius: 10,

@@ -5,10 +5,6 @@ import Layout from "../components/layout"
 import VanDetails from "../components/van-details"
 
 const VansPage = ({ data }) => {
-  console.log(
-    "data.allHomepageProduct.edges[0].node.image",
-    data.allHomepageProduct.edges[0].node.image
-  )
   return (
     <Layout
       title="Portfolio"

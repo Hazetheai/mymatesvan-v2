@@ -15,6 +15,8 @@ export function Base({
   className,
   ...props
 }) {
+  delete props.paddingSpace
+
   return <Component className={cx(..._cx, className)} {...props} />
 }
 
@@ -34,6 +36,7 @@ export function Flex({
   gutter,
   wrap,
   responsive,
+  responsiveMedium,
   marginY,
   alignItems,
   cx: _cx = [],
@@ -45,7 +48,7 @@ export function Flex({
         styles.flex,
         variant && styles.flexVariants[variant],
         responsive && styles.flexVariants.responsive,
-        // responsiveMedium && styles.flexVariants.responsiveMedium,
+        responsiveMedium && styles.flexVariants.responsiveMedium,
         wrap && styles.flexVariants.wrap,
         gutter && styles.gutter[gutter],
         gutter ? styles.flexGap[0] : styles.flexGap[gap],
@@ -59,6 +62,7 @@ export function Flex({
 }
 
 export function Box({
+  breakMedium = false,
   width = "full",
   background,
   padding,
@@ -72,7 +76,7 @@ export function Box({
   return (
     <Base
       cx={[
-        styles.widths[width],
+        styles[breakMedium ? "mediumWidths" : "widths"][width],
         background && styles.backgrounds[background],
         padding && styles.padding[padding],
         paddingY && styles.paddingY[paddingY],
@@ -97,8 +101,9 @@ export function List(props) {
 export function Space({ size = "auto", ...props }) {
   return (
     <Base
-      cx={[styles[props.paddingspace ? "padding" : "margin"][size]]}
+      cx={[styles[props.paddingSpace ? "padding" : "margin"][size]]}
       {...props}
+      paddingSpace={props.paddingSpace}
     />
   )
 }

@@ -10,7 +10,7 @@ const Layout = (props) => {
     <>
       <Head {...props} />
       <Header />
-      {props.noPadding ? null : <Space size="5" paddingspace />}
+      {props.noPadding ? null : <Space size="5" paddingSpace />}
       {props.children}
       <Footer />
     </>
