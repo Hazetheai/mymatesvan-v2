@@ -1,0 +1,60 @@
+.env*
+!.env.EXAMPLE
+node_modules
+.cache
+public
+dist
+.DS_Store
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+
+# Studio
+web/public/studio
+studio/dist
+studio/node_modules
+
+
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/.next
+/dist
+
+# misc
+/unused
+.firebase
+.DS_Store
+.env.local
+.env.build
+.env.development.local
+.env.test.local
+.env.production.local
+localText
+*localText
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.tar.gz
+
+# generated
+*schema.json
+
+
+# Secrets
+.env
+graphql.config.json
+*graphql.config.json
+
+
+# Images/Video
+*.mov
+*.mp4
+
+# Now/Vercel
+.now
