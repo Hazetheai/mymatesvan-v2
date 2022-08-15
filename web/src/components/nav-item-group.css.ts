@@ -123,7 +123,7 @@ export const navLinkListLink = style([
         margin: 0,
         color: "inherit",
         fontSize: theme.fontSizes[2],
-        fontWeight: theme.fontWeights.bold,
+        // fontWeight: theme.fontWeights.bold,
         borderRadius: theme.radii.button,
         ":hover": {
           background: theme.colors.muted,

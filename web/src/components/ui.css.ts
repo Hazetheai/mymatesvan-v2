@@ -591,9 +591,10 @@ export const blockLink = style({
 })
 
 const button = style({
+  fontFamily: theme.fonts.text,
   display: "inline-flex",
   textDecoration: "none",
-  fontWeight: theme.fontWeights.bold,
+  // fontWeight: theme.fontWeights.bold,
   fontSize: theme.fontSizes[2],
   lineHeight: theme.lineHeights.solid,
   paddingTop: theme.space[3],
@@ -770,4 +771,9 @@ export const clamp = style({
 // for debugging only
 export const debug = style({
   outline: "1px solid tomato",
+})
+
+export const imageBorder = style({
+  border: theme.borders.base,
+  borderRadius: theme.radii.button,
 })

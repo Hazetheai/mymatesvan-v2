@@ -46,8 +46,8 @@ const fontWeights = {
 }
 
 const fonts = {
-  text: '"Raleway", sans-serif',
-  heading: '"Raleway", sans-serif',
+  text: '"Rubik Dirt", sans-serif',
+  heading: '"Rubik Dirt", sans-serif',
   cursive: "Gloria Hallelujah, cursive",
 }
 
