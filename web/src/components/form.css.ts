@@ -7,6 +7,7 @@ export const form = style({})
 export const formGroup = style({ marginBottom: "30px" })
 
 export const inputText = style({
+  fontFamily: theme.fonts.text,
   width: "100%",
   border: "none",
   borderBottom: "1px solid #959595",
@@ -18,6 +19,7 @@ export const inputText = style({
 export const contactSpanErr = style({ color: "red", fontSize: "14px" })
 
 export const textAreaMessage = style({
+  fontFamily: theme.fonts.text,
   width: "100%",
   border: "none",
   borderBottom: "1px solid #959595",
