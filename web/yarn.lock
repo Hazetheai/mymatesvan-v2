@@ -1297,6 +1297,11 @@
   resolved "https://registry.npmjs.org/@fontsource/raleway/-/raleway-4.5.9.tgz"
   integrity sha512-K0GFmuJ5mlEX2czTzRHLyiO2dJDS+GGdtPkPOempss4ElgkYLYpgyqBMcJno5WeSOC9ABGMmtSJ6RtVVljUBzw==
 
+"@fontsource/rubik-dirt@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/rubik-dirt/-/rubik-dirt-4.5.0.tgz#0a5a24a67561bb37eb6b7faeb2ea4d46215943f9"
+  integrity sha512-UqXoSzSQtnea7njrIx4AQO6m3wZ3/r4hqbyqoex0b2Jkfx9JxKphZJHiLl7S9KzADDHb1uktuugJIXxU2WRZww==
+
 "@formspree/core@^2.7.0":
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/@formspree/core/-/core-2.7.0.tgz#87aeb72dc4837a7a3c386404074cbd4bd96908e2"
