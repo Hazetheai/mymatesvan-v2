@@ -34,6 +34,7 @@ export const descriptionText = style({
 export const imageHighlightText = style({
   display: "flex",
   alignItems: "center",
+  padding: theme.space[2],
   "@media": {
     [media.medium]: {
       display: "none",

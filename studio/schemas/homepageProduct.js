@@ -1,7 +1,7 @@
-import SlugInput from "sanity-plugin-better-slug"
+import SlugInput from "sanity-plugin-better-slug";
 
-import { GiSurferVan, GiInfo, GiPhotoCamera } from "react-icons/gi"
-import EditorMessage from "../components/EditorMessage"
+import { GiSurferVan, GiInfo, GiPhotoCamera } from "react-icons/gi";
+import EditorMessage from "../components/EditorMessage";
 
 export default {
   name: "homepageProduct",
@@ -120,10 +120,7 @@ export default {
       of: [{ type: "vanHighlight" }],
       group: "details",
       validation: (Rule) => [
-        Rule.required()
-          .min(1)
-          .max(5)
-          .error("Required field with at least 1 and at most 5 entries."),
+        Rule.required().min(1).error("Required field with at least 1 entries."),
       ],
     },
     {
@@ -136,16 +133,5 @@ export default {
       },
       group: "gallery",
     },
-    // {
-    //   title: "Links",
-    //   name: "links",
-    //   type: "array",
-    //   of: [
-    //     {
-    //       type: "reference",
-    //       to: [{ type: "homepageLink" }],
-    //     },
-    //   ],
-    // },
   ],
-}
+};
