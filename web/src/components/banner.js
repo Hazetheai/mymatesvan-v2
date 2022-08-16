@@ -4,6 +4,7 @@ import * as React from "react"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick-theme.css"
 import "slick-carousel/slick/slick.css"
+import { theme } from "../theme.css"
 import * as styles from "./banner.css"
 import {
   Box,
@@ -58,7 +59,9 @@ export default function Banner({ heading, text, images }) {
                   />
                 </div>
                 <Box center paddingY={4} className={styles.bannerContents}>
-                  <SuperHeading>{img.title}</SuperHeading>
+                  <SuperHeading style={{ marginBottom: theme.space[4] }}>
+                    {img.title}
+                  </SuperHeading>
                   <Subhead variant="large">{img.alt}</Subhead>
                 </Box>
               </div>

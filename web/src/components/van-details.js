@@ -15,6 +15,7 @@ import {
   Subhead,
   Text,
 } from "./ui"
+import { imageBorder } from "./ui.css"
 import * as styles from "./van-details.css"
 
 const VanDetails = ({
@@ -122,7 +123,7 @@ const VanDetails = ({
               </Button>
             )}
           </Box>
-          <Box width="half" breakMedium>
+          <Box width="half" breakMedium className={imageBorder}>
             <Slider
               ref={slider}
               afterChange={(currentSlide) => {
