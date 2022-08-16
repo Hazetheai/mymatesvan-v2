@@ -168,6 +168,8 @@ export function Kicker({ ...props }) {
 }
 
 export function Link({ to, href, ...props }) {
+  if (href === "none" || to === "none")
+    return <span className="empty-link">{href || to || ""}</span>
   const url = href || to || ""
   if (isAbsoluteURL(url)) {
     return (

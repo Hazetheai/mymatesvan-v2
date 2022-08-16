@@ -286,6 +286,11 @@ exports.createSchemaCustomization = async ({ actions }) => {
 
     interface LayoutFooter implements Node {
       id: ID!
+      contactAddress: String
+      contactAddressLink: String
+      contactOpeningTimes: String
+      contactPhone: String
+      contactEmail: String
       links: [HomepageLink]
       meta: [HomepageLink]
       socialLinks: [SocialLink]
@@ -569,6 +574,11 @@ exports.createSchemaCustomization = async ({ actions }) => {
 
     type SanityLayoutFooter implements Node & LayoutFooter {
       id: ID!
+      contactAddress: String
+      contactAddressLink: String
+      contactOpeningTimes: String
+      contactPhone: String
+      contactEmail: String
       links: [HomepageLink] @link
       meta: [HomepageLink] @link
       socialLinks: [SocialLink] @link

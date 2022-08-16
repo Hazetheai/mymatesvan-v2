@@ -91,6 +91,11 @@ export default function Footer() {
       layout {
         footer {
           id
+          contactAddress
+          contactAddressLink
+          contactOpeningTimes
+          contactPhone
+          contactEmail
           links {
             id
             href
@@ -112,63 +117,102 @@ export default function Footer() {
     }
   `)
 
-  const { links, meta, socialLinks, copyright } = data.layout.footer
-
+  const {
+    links,
+    meta,
+    socialLinks,
+    copyright,
+    contactAddress,
+    contactAddressLink,
+    contactOpeningTimes,
+    contactPhone,
+    contactEmail,
+  } = data.layout.footer
+  const hasContactDetails =
+    [contactAddress, contactEmail, contactOpeningTimes, contactPhone].filter(
+      (el) => !!el
+    ).length > 0
   return (
     <Container as="footer" width="fullbleed" id="footer">
       <Box>
         <Flex gap={0} variant="spaceBetween" responsive>
-          <Box className={styles.footerLeft} width="half">
-            <StaticImage
-              src="../../static/wv-beach-2.jpeg"
-              alt=""
-              style={{
-                gridArea: "1/1",
-                filter:
-                  "blur(2.9px) contrast(.6) grayscale(1) hue-rotate(23deg) opacity(0.74) sepia(.5) saturate(1.1)",
-              }}
-              layout="fullWidth"
-            />
-            <Box
-              padding={4}
-              style={{
-                // By using the same grid area for both, they are stacked on top of each other
-                gridArea: "1/1",
-                position: "relative",
-                // This centers the other elements inside the hero component
-                display: "grid",
-              }}
-            >
-              <Subhead>How to find us</Subhead>
-              <Flex marginY={3}>
-                <MapPin />
-                <address>
-                  <Text style={{ margin: 0 }}>
-                    <Link href="https://goo.gl/maps/ZfvLiWUY4J6CyA4CA">
-                      Unit 9/23 Donegal Road, <br />
+          {hasContactDetails && (
+            <Box className={styles.footerLeft} width="half">
+              <StaticImage
+                src="../../static/wv-beach-2.jpeg"
+                alt=""
+                style={{
+                  gridArea: "1/1",
+                  filter:
+                    "blur(2.9px) contrast(.6) grayscale(1) hue-rotate(23deg) opacity(0.74) sepia(.5) saturate(1.1)",
+                }}
+                layout="fullWidth"
+              />
+              <Box
+                padding={4}
+                style={{
+                  // By using the same grid area for both, they are stacked on top of each other
+                  gridArea: "1/1",
+                  position: "relative",
+                  // This centers the other elements inside the hero component
+                  display: "grid",
+                }}
+              >
+                <Subhead>How to find us</Subhead>
+                {contactAddress && (
+                  <Flex marginY={3}>
+                    <MapPin />
+                    <address>
+                      <Text style={{ margin: 0 }}>
+                        <Link href={contactAddressLink || "none"}>
+                          {contactAddress.split(",").map((word) => (
+                            <>
+                              {word},
+                              <br />
+                            </>
+                          ))}
+                          {/* Unit 9/23 Donegal Road, <br />
                       Lonsdale, Adelaide, <br />
-                      South Australia, 5160
+                      South Australia, 5160 */}
+                        </Link>
+                      </Text>
+                    </address>
+                  </Flex>
+                )}
+                {contactOpeningTimes && (
+                  <Flex marginY={3}>
+                    <Clock />
+                    <Text style={{ margin: 0 }}>
+                      {contactOpeningTimes}
+                      {/* 7:30am to 5:00pm - Mon to Fri */}
+                    </Text>
+                  </Flex>
+                )}
+                {contactPhone && (
+                  <Flex marginY={3}>
+                    <Phone />
+                    <Text style={{ margin: 0 }}>
+                      <Link href={`tel:${contactPhone}`}>
+                        {contactPhone}
+                        {/* 0467693920 */}
+                      </Link>
+                    </Text>
+                  </Flex>
+                )}
+                {contactEmail && (
+                  <Flex marginY={3}>
+                    <Mail />
+                    <Link
+                      href={`mailto:${contactEmail}?subject=Website Enquiry`}
+                    >
+                      <Text style={{ margin: 0 }}>{contactEmail}</Text>
                     </Link>
-                  </Text>
-                </address>
-              </Flex>
-              <Flex marginY={3}>
-                <Clock />
-                <Text style={{ margin: 0 }}>7:30am to 5:00pm - Mon to Fri</Text>
-              </Flex>
-              <Flex marginY={3}>
-                <Phone />
-                <Text style={{ margin: 0 }}>0467693920</Text>
-              </Flex>
-              <Flex marginY={3}>
-                <Mail />
-                <Link href="mailto:mymatesvan@gmail.com?subject=Website Enquiry">
-                  <Text style={{ margin: 0 }}>mymatesvan@gmail.com</Text>
-                </Link>
-              </Flex>
+                  </Flex>
+                )}
+              </Box>
             </Box>
-          </Box>
-          <Box center width="half" padding={4}>
+          )}
+          <Box center width={hasContactDetails ? "half" : "full"} padding={4}>
             <Heading>Contact us</Heading>
             <ContactForm />
           </Box>
