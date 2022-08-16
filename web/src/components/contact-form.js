@@ -4,7 +4,7 @@ import { useForm, ValidationError } from "@formspree/react"
 import { Box, Button, Container, Flex, Text } from "./ui"
 
 function ContactForm({ submitHandler }) {
-  const [state, handleSubmit] = useForm("meqnyzqk")
+  const [state, handleSubmit] = useForm("mzbowrob")
   if (state.succeeded) {
     !!submitHandler && submitHandler(state)
     return (

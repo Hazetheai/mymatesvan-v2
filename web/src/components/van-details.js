@@ -7,6 +7,7 @@ import {
   Box,
   Button,
   Container,
+  cx,
   Flex,
   FlexList,
   Heading,
@@ -15,7 +16,7 @@ import {
   Subhead,
   Text,
 } from "./ui"
-import { imageBorder } from "./ui.css"
+import { hideForMedium, imageBorder } from "./ui.css"
 import * as styles from "./van-details.css"
 
 const VanDetails = ({
@@ -108,7 +109,13 @@ const VanDetails = ({
                           ]
                         }
                       >
-                        <ChevronsRight style={{ color: theme.colors.accent }} />
+                        <ChevronsRight
+                          // className={hideForMedium}
+                          style={{
+                            color: theme.colors.accent,
+                            minWidth: theme.space[4],
+                          }}
+                        />
                         {highlight.text}
                       </Text>
                     )
@@ -143,8 +150,14 @@ const VanDetails = ({
                       style={{ width: "100%" }}
                     />
 
-                    <Text className={styles.imageHighlightText} as="p">
-                      <ChevronsRight style={{ color: theme.colors.accent }} />
+                    <Text className={cx(styles.imageHighlightText)} as="p">
+                      <ChevronsRight
+                        className={hideForMedium}
+                        style={{
+                          color: theme.colors.accent,
+                          minWidth: theme.space[4],
+                        }}
+                      />
                       {highlight.text}
                     </Text>
                   </div>

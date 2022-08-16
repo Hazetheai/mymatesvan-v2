@@ -4,6 +4,32 @@ export default {
   type: "document",
   fields: [
     {
+      name: "contactAddress",
+      title: "Contact address",
+      type: "string",
+    },
+    {
+      name: "contactAddressLink",
+      title: "Contact address link",
+      description: "💡 Add a google maps link for easy access",
+      type: "url",
+    },
+    {
+      name: "contactOpeningTimes",
+      title: "Opening times",
+      type: "string",
+    },
+    {
+      name: "contactPhone",
+      title: "Contact phone number",
+      type: "string",
+    },
+    {
+      name: "contactEmail",
+      title: "Contact email",
+      type: "string",
+    },
+    {
       title: "Links",
       name: "links",
       type: "array",
@@ -38,4 +64,4 @@ export default {
     },
     { title: "Copyright", name: "copyright", type: "string" },
   ],
-}
+};
