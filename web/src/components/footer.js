@@ -1,89 +1,26 @@
-import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import * as styles from "./footer.css"
+import { StaticImage } from "gatsby-plugin-image"
+import * as React from "react"
 import {
-  Twitter,
-  Twitch,
-  Instagram,
-  Facebook,
-  Youtube,
-  GitHub,
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
+  Clock, Mail, MapPin,
+  Phone
 } from "react-feather"
-import {
-  Container,
-  Flex,
-  FlexList,
-  Box,
-  Space,
-  NavLink,
-  Text,
-  IconLink,
-  VisuallyHidden,
-  Heading,
-  Link,
-  Subhead,
-  Nudge,
-} from "./ui"
 import BrandLogo from "./brand-logo"
 import ContactForm from "./contact-form"
+import * as styles from "./footer.css"
 import {
   getSocialIcon,
   getSocialName,
-  getSocialURL,
+  getSocialURL
 } from "./global-social-links"
-import { theme } from "../theme.css"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
+import {
+  Box, Container,
+  Flex,
+  FlexList, Heading, IconLink, Link, NavLink, Space, Subhead, Text, VisuallyHidden
+} from "./ui"
 
-const socialMedia = {
-  TWITTER: {
-    url: "https://twitter.com",
-    name: "Twitter",
-    icon: <Twitter />,
-  },
-  INSTAGRAM: {
-    url: "https://instagram.com",
-    name: "Instagram",
-    icon: <Instagram />,
-  },
-  FACEBOOK: {
-    url: "https://facebook.com",
-    name: "Facebook",
-    icon: <Facebook />,
-  },
-  YOUTUBE: {
-    url: "https://youtube.com",
-    name: "YouTube",
-    icon: <Youtube />,
-  },
-  GITHUB: {
-    url: "https://github.com",
-    name: "GitHub",
-    icon: <GitHub />,
-  },
-  TWITCH: {
-    url: "https://twitch.tv",
-    name: "Twitch",
-    icon: <Twitch />,
-  },
-}
 
-// const getSocialURL = ({ service, username }) => {
-//   const domain = socialMedia[service]?.url
-//   if (!domain) return false
-//   return `${domain}/${username}`
-// }
 
-// const getSocialIcon = ({ service }) => {
-//   return socialMedia[service]?.icon
-// }
-
-// const getSocialName = ({ service }) => {
-//   return socialMedia[service]?.name
-// }
 
 export default function Footer() {
   const data = useStaticQuery(graphql`
@@ -166,10 +103,10 @@ export default function Footer() {
                       <Text style={{ margin: 0 }}>
                         <Link href={contactAddressLink || "none"}>
                           {contactAddress.split(",").map((word) => (
-                            <>
+                            <React.Fragment key={word}>
                               {word},
                               <br />
-                            </>
+                            </React.Fragment>
                           ))}
                           {/* Unit 9/23 Donegal Road, <br />
                       Lonsdale, Adelaide, <br />
