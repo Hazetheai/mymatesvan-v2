@@ -20,18 +20,18 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
-    // {
-    //   resolve: "gatsby-plugin-manifest",
-    //   options: {
-    //     name: "My Mates Van",
-    //     short_name: "My Mates Van",
-    //     start_url: "/",
-    //     // These can be imported once ESM support lands
-    //     background_color: "hsl(23, 59%, 21%)",
-    //     theme_color: "hsl(30, 65%, 85%)",
-    //     icon: "src/favicon-96x96.png",
-    //   },
-    // },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "My Mates Van",
+        short_name: "My Mates Van",
+        start_url: "/",
+        // These can be imported once ESM support lands
+        background_color: "hsl(23, 59%, 21%)",
+        theme_color: "hsl(30, 65%, 85%)",
+        icon: "src/favicon-96x96.png",
+      },
+    },
     {
       resolve: `gatsby-plugin-portal`,
       options: {
