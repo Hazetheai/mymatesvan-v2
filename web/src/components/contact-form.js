@@ -1,10 +1,24 @@
-import React from "react"
+import React, { useState } from "react"
 import * as styles from "./form.css"
 import { useForm, ValidationError } from "@formspree/react"
 import { Box, Button, Container, Flex, Text } from "./ui"
 
 function ContactForm({ submitHandler }) {
   const [state, handleSubmit] = useForm("mzbowrob")
+  const [emailValue, setEmailValue] = useState("")
+
+  if (/wirethings\.net/.test(emailValue)) {
+    console.log('Go home, bot')
+    return (
+      <Container>
+        <Box>
+          <Text>
+            We have detected spam from this domain. Please refresh and use an alternative domain.
+          </Text>
+        </Box>
+      </Container>
+    )
+  }
   if (state.succeeded) {
     !!submitHandler && submitHandler(state)
     return (
@@ -31,8 +45,8 @@ function ContactForm({ submitHandler }) {
           />
           <span className={styles.contactSpanErr}>
             <ValidationError
-              prefix="Email"
-              field="email"
+              prefix="Name"
+              field="name"
               errors={state.errors}
             />
           </span>
@@ -63,6 +77,7 @@ function ContactForm({ submitHandler }) {
             id="email"
             type="email"
             name="email"
+            onChange={(e) => setEmailValue(e.target.value)}
           />
           <span className={styles.contactSpanErr}>
             <ValidationError
