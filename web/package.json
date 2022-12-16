@@ -4,7 +4,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "gatsby develop",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
