@@ -112,7 +112,6 @@ const SocialLinks = ({ title, size, inline }) => {
 }
 
 const SocialLinkList = ({ socialLinks, size }) => {
-  console.log("socialLinks", socialLinks)
   return (
     <FlexList variant="spaceAround">
       {socialLinks &&
