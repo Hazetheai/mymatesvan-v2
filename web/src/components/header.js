@@ -64,12 +64,6 @@ export default function Header() {
               }
             }
           }
-          cta {
-            id
-            href
-            text
-            isContactButton
-          }
         }
       }
     }
@@ -131,7 +125,7 @@ export default function Header() {
                 ))}
             </FlexList>
           </nav>
-          <div>
+          {/* <div>
             {cta?.isContactButton ? (
               <Modal buttonText={cta.text}>
                 <ContactForm />
@@ -139,7 +133,7 @@ export default function Header() {
             ) : (
               cta && <Button to={cta.href}>{cta.text}</Button>
             )}
-          </div>
+          </div> */}
         </Flex>
       </Container>
       <Container className={mobileHeaderNavWrapper[isOpen ? "open" : "closed"]}>
@@ -157,13 +151,13 @@ export default function Header() {
           </span>
           <Flex>
             <Space />
-            <div>
+            {/* <div>
               {cta && (
                 <Button to={cta.href} variant={isOpen ? "reversed" : "primary"}>
                   {cta.text}
                 </Button>
               )}
-            </div>
+            </div> */}
             <Nudge right={3}>
               <InteractiveIcon
                 title="Toggle menu"
