@@ -1,10 +1,15 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import AriaModal from "react-aria-modal"
 import { Box, Button, Container, Heading, InteractiveIcon } from "./ui"
 import * as styles from "./modal.css"
 import { X } from "react-feather"
 
-const Modal = ({ children, title, buttonText }) => {
+const Modal = ({
+  children,
+  title,
+  buttonText,
+  timer = { button: true, delay: 0 },
+}) => {
   const [modalActive, setModalActive] = useState(false)
 
   const activateModal = () => {
@@ -19,11 +24,23 @@ const Modal = ({ children, title, buttonText }) => {
     return document.getElementById("portal")
   }
 
+  useEffect(() => {
+    setTimeout(() => {
+      if (!timer?.button) {
+        setModalActive(true)
+      }
+    }, timer?.delay || 0)
+  }, [])
+
   return (
     <div>
-      <div>
-        <Button onClick={activateModal}>{buttonText || title || "Open"}</Button>
-      </div>
+      {timer?.button === false ? null : (
+        <div>
+          <Button onClick={activateModal}>
+            {buttonText || title || "Open"}
+          </Button>
+        </div>
+      )}
       {modalActive ? (
         <AriaModal
           titleText={buttonText || title || ""}

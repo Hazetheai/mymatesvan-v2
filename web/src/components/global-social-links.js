@@ -24,7 +24,7 @@ import {
 } from "./ui"
 import BrandLogo from "./brand-logo"
 
-const socialMedia = (size = 24) => ({
+export const socialMedia = (size = 24) => ({
   TWITTER: {
     url: "https://twitter.com",
     name: "Twitter",
@@ -71,7 +71,7 @@ export const getSocialName = ({ service }) => {
   return socialMedia()[service]?.name
 }
 
-const SocialLinks = (data) => {
+const SocialLinks = ({ title, size, inline }) => {
   const staticData = useStaticQuery(graphql`
     {
       allSocialLink {
@@ -89,42 +89,55 @@ const SocialLinks = (data) => {
 
   const { edges: socialLinks } = staticData.allSocialLink
 
+  if (inline) {
+    return (
+      <Container width="tight">
+        <SocialLinkList socialLinks={socialLinks} size={size || 50} />
+      </Container>
+    )
+  }
+
   return (
     <Section>
       <Container width="wide">
-        {data.title && (
+        {title && (
           <Box center>
-            <Heading>{data.title}</Heading>
+            <Heading>{title}</Heading>
           </Box>
         )}
-        <FlexList variant="spaceAround">
-          {socialLinks &&
-            socialLinks.map((link) => {
-              link.node.size = 100
-              const url = getSocialURL(link.node)
-              return (
-                url && (
-                  <li key={link.node.id}>
-                    <Box center>
-                      <IconLink to={url}>
-                        <VisuallyHidden>
-                          {getSocialName(link.node)}
-                        </VisuallyHidden>
-                        {getSocialIcon(link.node)}
-                      </IconLink>
-                      {link.node.tagline && (
-                        <Text style={{ maxWidth: "15ch" }} variant="stat">
-                          {link.node.tagline}
-                        </Text>
-                      )}
-                    </Box>
-                  </li>
-                )
-              )
-            })}
-        </FlexList>
+        <SocialLinkList socialLinks={socialLinks} size={size || 100} />
       </Container>
     </Section>
+  )
+}
+
+const SocialLinkList = ({ socialLinks, size }) => {
+  console.log("socialLinks", socialLinks)
+  return (
+    <FlexList variant="spaceAround">
+      {socialLinks &&
+        socialLinks.map((link) => {
+          link.node.size = size || 100
+          const url = getSocialURL(link.node)
+          return (
+            url && (
+              <li key={link.node.id}>
+                <Box center>
+                  <IconLink to={url}>
+                    <VisuallyHidden>{getSocialName(link.node)}</VisuallyHidden>
+                    {getSocialIcon(link.node)}
+                  </IconLink>
+                  {link.node.tagline && (
+                    <Text style={{ maxWidth: "15ch" }} variant="stat">
+                      {link.node.tagline}
+                    </Text>
+                  )}
+                </Box>
+              </li>
+            )
+          )
+        })}
+    </FlexList>
   )
 }
 

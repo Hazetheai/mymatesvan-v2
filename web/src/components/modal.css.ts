@@ -6,6 +6,8 @@ export const baseModal = style({
   backgroundColor: theme.colors.white,
   padding: theme.space[3],
   position: "relative",
+  maxWidth: "800px",
+  margin: "0 auto",
 
   "@media": {
     [media.small]: {

@@ -3,6 +3,8 @@ import { graphql } from "gatsby"
 import { Section } from "../components/ui"
 import Layout from "../components/layout"
 import VanDetails from "../components/van-details"
+import Modal from "../components/modal"
+import SocialLinks from "../components/global-social-links"
 
 const VansPage = ({ data }) => {
   return (
@@ -25,6 +27,30 @@ const VansPage = ({ data }) => {
           />
         )
       })}
+      <Modal
+        title={"We are currently closed for the moment."}
+        timer={{ button: false, delay: 1000 }}
+      >
+        <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+          <br />
+          <p>
+            We are currently taking time away from our little business to work
+            on our own Toyota Coaster! Hopefully we will see you on the road!
+            <br />
+            <br />
+            Keep an eye out on our Instagram &amp; Facebook pages for future
+            updates.
+            <br />
+            <br />
+            Thanks!
+            <br />
+            Todd and Jasmine
+            <br />
+            My Mates Van
+          </p>
+        </div>
+        <SocialLinks size={50} inline />
+      </Modal>
     </Layout>
   )
 }
